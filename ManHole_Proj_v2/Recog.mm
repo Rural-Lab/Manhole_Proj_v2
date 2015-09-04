@@ -14,7 +14,7 @@
     [self.recognitionEngine setDelegate:self];
     
     GPFineRecognizer *recognizer = [[GPFineRecognizer alloc] init];
-    [recognizer loadFromPath:[[NSBundle mainBundle] resourcePath] fileName:@"Manhole"];
+    [recognizer loadFromPath:[[NSBundle mainBundle] resourcePath] fileName:@"Manhole_Data"];
     
     [self.recognitionEngine setRecognizer:recognizer];
 }
