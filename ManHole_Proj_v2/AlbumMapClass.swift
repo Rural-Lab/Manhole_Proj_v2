@@ -35,7 +35,7 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
         
         var myPin: MKPointAnnotation = MKPointAnnotation()
         myPin.coordinate = CLLocationCoordinate2DMake(35.1748, 135.0707)
-        myPin.title = "福知山"
+        myPin.title = "SaveManhole1"
         myPin.subtitle = "2015/08/19"
         myMapView.addAnnotation(myPin)
         var myPin2: MKPointAnnotation = MKPointAnnotation()
@@ -97,6 +97,40 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
     
     func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
         println("regionDidChangeAnimated")
+    }
+    
+    
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        if annotation === mapView.userLocation { // 現在地を示すアノテーションの場合はデフォルトのまま
+            return nil
+        } else {
+            let identifier = "annotation"
+            if let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("annotation") { // 再利用できる場合はそのまま返す
+                return annotationView
+            } else { // 再利用できるアノテーションが無い場合（初回など）は生成する
+                
+                let annotationView:MKAnnotationView
+                let manhole:UIImage
+                if(annotation.title == "SaveManhole1"){
+                    annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                    manhole = UIImage(named: "Img/" + annotation.title! + ".png")!
+                }else{
+                    annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                    manhole = UIImage(named: "Img/SaveManhole2.png")!
+                }
+                
+                let size = CGSize(width: 30, height: 30)
+                
+                UIGraphicsBeginImageContext(size)
+                manhole.drawInRect(CGRectMake(0, 0, size.width, size.height))
+                var resizeImage = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                annotationView.image = resizeImage // ここで好きな画像を設定します
+                
+                return annotationView
+                
+            }
+        }
     }
     
     func ClickButton(sender:UIButton){
