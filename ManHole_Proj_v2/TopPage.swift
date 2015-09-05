@@ -30,6 +30,11 @@ public class TopPage: Recog, CLLocationManagerDelegate {
     //アルバムボタン
     @IBOutlet var AlbumButton:UIButton?
     
+    @IBOutlet weak var TopTitle: UILabel!
+    @IBOutlet weak var LogoImage: UIImageView!
+    
+    //@IBOutlet weak var LogoImage: UIImageView!
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,7 +91,7 @@ public class TopPage: Recog, CLLocationManagerDelegate {
         // トップページのレイアウトを作成.(ここまで)
         
         AlbumButton = UIButton(frame: CGRectMake(0,0,60,60))
-        let albumimage = UIImage(named: "album.png")
+        let albumimage = UIImage(named: "Img/album.png")
         AlbumButton!.setBackgroundImage(albumimage, forState: .Normal)
 //        AlbumButton!.backgroundColor = UIColor.darkGrayColor();
         AlbumButton!.layer.masksToBounds = true
@@ -96,11 +101,16 @@ public class TopPage: Recog, CLLocationManagerDelegate {
         AlbumButton!.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
         AlbumButton!.tag = 1
         
-        self.view.addSubview(AlbumButton!);
+        self.view.addSubview(AlbumButton!)
         // 撮影ボタンとアルバムボタンの作成（ここまで）
+        TopTitle.text = ""
+        //self.view.addSubview(TopTitle!)
         
+        LogoImage.image = UIImage(named: "Img/rurallid.png")
+        self.view.addSubview(LogoImage!)
         
-        
+//        LogoImage.image = UIImage(named: "Img/rurallid.png")
+//        self.view.addSubview(LogoImage)
         
         
         //位置情報の取得（ここから）

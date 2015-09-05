@@ -35,6 +35,7 @@
 		3C629CE71B99BDF800A424F9 /* GraffitiSubClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C629CDD1B99BDF800A424F9 /* GraffitiSubClass.swift */; };
 		3C629CEA1B99BDF800A424F9 /* InfoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C629CE01B99BDF800A424F9 /* InfoClass.swift */; };
 		D0C6756F1B9AFBDD00262F56 /* album.png in Resources */ = {isa = PBXBuildFile; fileRef = D0C6756E1B9AFBDD00262F56 /* album.png */; };
+		D0C675711B9B078A00262F56 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = D0C675701B9B078A00262F56 /* home.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		3C629CDD1B99BDF800A424F9 /* GraffitiSubClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiSubClass.swift; sourceTree = "<group>"; };
 		3C629CE01B99BDF800A424F9 /* InfoClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoClass.swift; sourceTree = "<group>"; };
 		D0C6756E1B9AFBDD00262F56 /* album.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = album.png; sourceTree = "<group>"; };
+		D0C675701B9B078A00262F56 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			children = (
 				3C6165081B9A912600F7720D /* Manhole.bin */,
 				3C6165091B9A912600F7720D /* Manhole.yaml */,
+				D0C675701B9B078A00262F56 /* home.png */,
 				3C6164FB1B9A07B100F7720D /* Img */,
 				3C629CED1B99C2A800A424F9 /* Script */,
 				3C629C771B99A59A00A424F9 /* Images.xcassets */,
@@ -294,6 +297,7 @@
 			files = (
 				3C61650A1B9A912600F7720D /* Manhole.bin in Resources */,
 				3C6164FC1B9A07B100F7720D /* Img in Resources */,
+				D0C675711B9B078A00262F56 /* home.png in Resources */,
 				3C6164FE1B9A07C300F7720D /* Base.lproj in Resources */,
 				3C6165071B9A096100F7720D /* LaunchScreen.xib in Resources */,
 				3C6165041B9A095D00F7720D /* Main.storyboard in Resources */,

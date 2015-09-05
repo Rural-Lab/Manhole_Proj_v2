@@ -149,10 +149,15 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     func buttonInit(){
         ChangeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
         ChangeButton?.tag = 2
+        ChangeButton?.setImage(UIImage(named: "Img/areainfo.png"), forState: .Normal)
+        
         HomeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
-        HomeButton?.setImage(UIImage(named: "Img/HomeIcon.png"), forState: .Normal)
-        HomeButton?.frame = CGRectMake(10, 2, 35, 35)
+        HomeButton?.setImage(UIImage(named: "Img/home.png"), forState: .Normal)
+//        HomeButton?.frame = CGRectMake(10, 2, 35, 35)
         HomeButton?.tag = 3
+        
+        TitleLabel?.text = "\nSNS"
+        TitleLabel?.numberOfLines = 2
         self.view.addSubview(TitleLabel!)
         self.view.addSubview(HomeButton!)
         self.view.addSubview(ChangeButton!)

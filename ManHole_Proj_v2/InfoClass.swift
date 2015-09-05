@@ -51,16 +51,19 @@ class InfoClass: GraffitiSubClass{
 //        createword("Hello",x: 0.0,y: -50.0,z: 0.0)
         
         //TitleLabel?.text = ManholeName + ":Infomation"
-        TitleLabel?.text = "Area Info"
-        TitleLabel?.backgroundColor = UIColor(red: 1.0, green: 0.9, blue: 0.29, alpha: 0.7)
+        TitleLabel?.text = "\nArea Information"
+        TitleLabel?.numberOfLines = 2
+        TitleLabel?.backgroundColor = UIColor(red: 1.0, green: 0.9, blue: 0.29, alpha: 1.0)
         TitleButtom?.text = "〒" + "滋賀県草津市野路"
         
         
         ChangeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
         ChangeButton?.tag = 2
+        ChangeButton?.setImage(UIImage(named: "Img/illust.png"), forState: .Normal)
+        
+        
         HomeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
-        HomeButton?.setImage(UIImage(named: "Img/HomeIcon.png"), forState: .Normal)
-        HomeButton?.frame = CGRectMake(10, 2, 35, 35)
+        HomeButton?.setImage(UIImage(named: "Img/home.png"), forState: .Normal)
         HomeButton?.tag = 3
         
         self.view.addSubview(TitleLabel!)
