@@ -22,6 +22,10 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
     
     var SaveArray:NSMutableArray?
     
+    var RayBox_X:Float=0.0, RayBox_Y:Float=0.0, RayBox_Z:Float=0.0
+    var InfoFlag = false
+    var InfoButton:UIButton?
+    
     override func shouldAutorotate() -> Bool {
         return true
     }
@@ -47,6 +51,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
     
     func createword(name:String,x:Float,y:Float,z:Float){
         let scnView = self.view.viewWithTag(10) as! SCNView
@@ -56,6 +61,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         
         let text = SCNText(string: name, extrusionDepth: 1.0)
         let textNode = SCNNode(geometry: text)
+        textNode.name = name
         
         var v1 = SCNVector3Zero
         var v2 = SCNVector3Zero
@@ -112,7 +118,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         let vector = SCNBox(width: 0, height: 0, length: 0, chamferRadius: 0.5)
         let vectorNode = SCNNode(geometry: vector)
         vectorNode.name = "vectorNode"
-        vectorNode.position = SCNVector3(x: 0, y: 0, z: -80)
+        vectorNode.position = SCNVector3(x: 0, y: 0, z: -50)
         
         // シーンオブジェクトを撮影するためのノードを作成
         let cameraNode = SCNNode()
@@ -175,6 +181,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
 //        scene.rootNode.addChildNode(textNode)
         
         // シーンを表示するためのビューへの参照を取得
+        
         let scnView = SCNView()
         scnView.frame = self.view.bounds
         
@@ -192,6 +199,8 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         scnView.tag = 10
         scnView.backgroundColor = UIColor.clearColor()
         self.view.addSubview(scnView)
+        
+        createword("Hello",x: 0.0,y: -50.0,z: 0.0)
         
         return cameraNode
     }
@@ -211,6 +220,10 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         // Initialize MotionManager
         motionManager.deviceMotionUpdateInterval = 0.05 // 20Hz
         
+        let scnView = self.view.viewWithTag(10) as! SCNView
+        let Info = scnView.scene?.rootNode.childNodeWithName("Hello", recursively: true)
+        let subBoxNode = cameraNode.childNodeWithName("vectorNode", recursively: true)
+        
         // Start motion data acquisition
         motionManager.startDeviceMotionUpdatesToQueue( NSOperationQueue.currentQueue(), withHandler:{
             deviceManager, error in
@@ -226,6 +239,19 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
             let rq = SCNVector4Make(qp.x, qp.y, qp.z, qp.w)
             
             cameraNode.orientation = rq
+            
+//            if self.InfoFlag {
+//                self.InfoButton?.hidden = true
+//                if Info!.position.x - subBoxNode!.worldTransform.m41 > -7 && Info!.position.x - subBoxNode!.worldTransform.m41 < 10{
+//                    if Info!.position.y - subBoxNode!.worldTransform.m42 > -7 && Info!.position.y - subBoxNode!.worldTransform.m42 < 10{
+//                        if Info!.position.z - subBoxNode!.worldTransform.m43 > -7 && Info!.position.y - subBoxNode!.worldTransform.m43 < 10{
+//                            self.InfoButton?.hidden = false
+////                            self.InfoButton?.tag =
+//                        }
+//
+//                    }
+//                }
+//            }
         })
         
     }
@@ -429,5 +455,5 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         return nil
         
     }
-
+    
 }

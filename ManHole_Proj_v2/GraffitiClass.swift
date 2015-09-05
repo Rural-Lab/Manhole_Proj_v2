@@ -46,6 +46,8 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        InfoFlag = false
+        
         CameraInit()
         motionInit(sceneInit())
         LoadFile(ManholeName)

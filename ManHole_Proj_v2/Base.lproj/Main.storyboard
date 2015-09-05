@@ -52,54 +52,12 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <view contentMode="scaleToFill" id="xzc-AG-bB4">
-                                <rect key="frame" x="13" y="90" width="295" height="358"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="a1A-TS-csH">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="186"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Hlt-uW-oJn">
-                                        <rect key="frame" x="8" y="8" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="5kA-ac-S92">
-                                        <rect key="frame" x="0.0" y="188" width="295" height="170"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </scrollView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qdf-KB-IaZ">
-                                <rect key="frame" x="16" y="48" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xkd-AH-taj">
-                                <rect key="frame" x="147" y="48" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="BackButton" destination="Hlt-uW-oJn" id="4we-8O-WRo"/>
                         <outlet property="ChangeButton" destination="W7l-wO-cWY" id="Oi2-sZ-nLh"/>
                         <outlet property="HomeButton" destination="iRU-Rh-3kx" id="ZU3-be-PaW"/>
-                        <outlet property="PopupView" destination="xzc-AG-bB4" id="6KM-LM-ggQ"/>
-                        <outlet property="ShopImageView" destination="a1A-TS-csH" id="GhF-x1-WRx"/>
-                        <outlet property="ShopScrollView" destination="5kA-ac-S92" id="VS3-yT-ZFx"/>
-                        <outlet property="ShopSign" destination="Qdf-KB-IaZ" id="qKv-ci-qBM"/>
-                        <outlet property="ShopSign2" destination="xkd-AH-taj" id="Ccz-Sd-iEY"/>
                         <outlet property="TitleLabel" destination="dAL-2o-b8Z" id="T4f-5n-sbw"/>
                         <segue destination="KOn-vV-BQD" kind="modal" identifier="ChangeToGraffiti" modalTransitionStyle="crossDissolve" id="34y-9K-lDg"/>
                         <segue destination="BYZ-38-t0r" kind="modal" identifier="FromInfoToHome" id="rVM-lI-Ma2"/>
