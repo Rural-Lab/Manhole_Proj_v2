@@ -21,6 +21,8 @@ class InfoClass: GraffitiSubClass{
     @IBOutlet var HomeButton:UIButton?
     @IBOutlet var ChangeButton:UIButton?
     @IBOutlet var TitleLabel:UILabel?
+    @IBOutlet var TitleButtom: UILabel?
+    
     
 //    @IBOutlet var ShopSign:UIButton?
 //    @IBOutlet var ShopSign2:UIButton?
@@ -48,8 +50,12 @@ class InfoClass: GraffitiSubClass{
         motionInit(sceneInit())
 //        createword("Hello",x: 0.0,y: -50.0,z: 0.0)
         
-        TitleLabel?.text = ManholeName + ":Infomation"
+        //TitleLabel?.text = ManholeName + ":Infomation"
+        TitleLabel?.text = "Area Info"
         TitleLabel?.backgroundColor = UIColor(red: 1.0, green: 0.9, blue: 0.29, alpha: 0.7)
+        TitleButtom?.text = "〒" + "滋賀県草津市野路"
+        
+        
         ChangeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
         ChangeButton?.tag = 2
         HomeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
@@ -58,6 +64,7 @@ class InfoClass: GraffitiSubClass{
         HomeButton?.tag = 3
         
         self.view.addSubview(TitleLabel!)
+        self.view.addSubview(TitleButtom!)
         self.view.addSubview(HomeButton!)
         self.view.addSubview(ChangeButton!)
         

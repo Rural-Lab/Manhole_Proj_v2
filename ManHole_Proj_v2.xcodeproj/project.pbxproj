@@ -34,6 +34,7 @@
 		3C629CE61B99BDF800A424F9 /* GraffitiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C629CDC1B99BDF800A424F9 /* GraffitiClass.swift */; };
 		3C629CE71B99BDF800A424F9 /* GraffitiSubClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C629CDD1B99BDF800A424F9 /* GraffitiSubClass.swift */; };
 		3C629CEA1B99BDF800A424F9 /* InfoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C629CE01B99BDF800A424F9 /* InfoClass.swift */; };
+		D0C6756F1B9AFBDD00262F56 /* album.png in Resources */ = {isa = PBXBuildFile; fileRef = D0C6756E1B9AFBDD00262F56 /* album.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		3C629CDC1B99BDF800A424F9 /* GraffitiClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiClass.swift; sourceTree = "<group>"; };
 		3C629CDD1B99BDF800A424F9 /* GraffitiSubClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiSubClass.swift; sourceTree = "<group>"; };
 		3C629CE01B99BDF800A424F9 /* InfoClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoClass.swift; sourceTree = "<group>"; };
+		D0C6756E1B9AFBDD00262F56 /* album.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = album.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 			children = (
 				3C629CC21B99B74E00A424F9 /* TopPage.swift */,
 				3C629CE01B99BDF800A424F9 /* InfoClass.swift */,
+				D0C6756E1B9AFBDD00262F56 /* album.png */,
 				3C629CDC1B99BDF800A424F9 /* GraffitiClass.swift */,
 				3C629CDD1B99BDF800A424F9 /* GraffitiSubClass.swift */,
 				3C629CD91B99BDF800A424F9 /* AlbumListClass.swift */,
@@ -257,7 +260,7 @@
 				TargetAttributes = {
 					3C629C661B99A59A00A424F9 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 42QLY4A7LX;
+						DevelopmentTeam = 628U27X7NX;
 					};
 					3C629C7F1B99A59A00A424F9 = {
 						CreatedOnToolsVersion = 6.4;
@@ -294,6 +297,7 @@
 				3C6164FE1B9A07C300F7720D /* Base.lproj in Resources */,
 				3C6165071B9A096100F7720D /* LaunchScreen.xib in Resources */,
 				3C6165041B9A095D00F7720D /* Main.storyboard in Resources */,
+				D0C6756F1B9AFBDD00262F56 /* album.png in Resources */,
 				3C61650B1B9A912600F7720D /* Manhole.yaml in Resources */,
 				3C629C781B99A59A00A424F9 /* Images.xcassets in Resources */,
 			);
@@ -449,16 +453,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 基貴 園田 (WJ872BS5T5)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/Takuro/Documents/Github/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
+					/Users/sonoda/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ManHole_Proj_v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/Takuro/Documents/Github/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
+					/Users/sonoda/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ManHole_Proj_v2;
@@ -471,16 +475,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 基貴 園田 (WJ872BS5T5)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/Takuro/Documents/Github/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
+					/Users/sonoda/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ManHole_Proj_v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/Takuro/Documents/Github/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
+					/Users/sonoda/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ManHole_Proj_v2;

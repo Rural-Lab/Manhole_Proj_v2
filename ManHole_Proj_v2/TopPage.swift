@@ -85,17 +85,20 @@ public class TopPage: Recog, CLLocationManagerDelegate {
         
         // トップページのレイアウトを作成.(ここまで)
         
-        AlbumButton = UIButton(frame: CGRectMake(0,0,120,50))
-        AlbumButton!.backgroundColor = UIColor.redColor();
+        AlbumButton = UIButton(frame: CGRectMake(0,0,60,60))
+        let albumimage = UIImage(named: "album.png")
+        AlbumButton!.setBackgroundImage(albumimage, forState: .Normal)
+//        AlbumButton!.backgroundColor = UIColor.darkGrayColor();
         AlbumButton!.layer.masksToBounds = true
-        AlbumButton!.setTitle("アルバム", forState: .Normal)
-        AlbumButton!.layer.cornerRadius = 20.0
-        AlbumButton!.layer.position = CGPoint(x: self.view.bounds.width/4*3, y:self.view.bounds.height-50)
+//        AlbumButton!.setTitle("アルバム", forState: .Normal)
+//        AlbumButton!.layer.cornerRadius = 20.0
+        AlbumButton!.layer.position = CGPoint(x: self.view.bounds.width/8*7, y:self.view.bounds.height-50)
         AlbumButton!.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
         AlbumButton!.tag = 1
         
         self.view.addSubview(AlbumButton!);
         // 撮影ボタンとアルバムボタンの作成（ここまで）
+        
         
         
         
