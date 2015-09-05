@@ -18,7 +18,6 @@
 		3C629C731B99A59A00A424F9 /* Recog.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C629C721B99A59A00A424F9 /* Recog.mm */; };
 		3C629C781B99A59A00A424F9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C629C771B99A59A00A424F9 /* Images.xcassets */; };
 		3C629C871B99A59A00A424F9 /* ManHole_Proj_v2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C629C861B99A59A00A424F9 /* ManHole_Proj_v2Tests.m */; };
-		3C629C931B99A61E00A424F9 /* GPImageRecognitionEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C629C911B99A61E00A424F9 /* GPImageRecognitionEngine.framework */; };
 		3C629C941B99A61E00A424F9 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C629C921B99A61E00A424F9 /* opencv2.framework */; };
 		3C629C961B99A62900A424F9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C629C951B99A62900A424F9 /* AVFoundation.framework */; };
 		3C629C981B99A63100A424F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C629C971B99A63100A424F9 /* UIKit.framework */; };
@@ -34,6 +33,7 @@
 		3C629CE61B99BDF800A424F9 /* GraffitiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C629CDC1B99BDF800A424F9 /* GraffitiClass.swift */; };
 		3C629CE71B99BDF800A424F9 /* GraffitiSubClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C629CDD1B99BDF800A424F9 /* GraffitiSubClass.swift */; };
 		3C629CEA1B99BDF800A424F9 /* InfoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C629CE01B99BDF800A424F9 /* InfoClass.swift */; };
+		A6C8841C1B9AAA05006575AA /* GPImageRecognitionEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C629C911B99A61E00A424F9 /* GPImageRecognitionEngine.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6C8841C1B9AAA05006575AA /* GPImageRecognitionEngine.framework in Frameworks */,
 				3C629CA21B99A65600A424F9 /* AssetsLibrary.framework in Frameworks */,
 				3C629CA01B99A64E00A424F9 /* QuartzCore.framework in Frameworks */,
 				3C629C9E1B99A64800A424F9 /* CoreVideo.framework in Frameworks */,
@@ -97,7 +98,6 @@
 				3C629C981B99A63100A424F9 /* UIKit.framework in Frameworks */,
 				3C629C961B99A62900A424F9 /* AVFoundation.framework in Frameworks */,
 				3C629C941B99A61E00A424F9 /* opencv2.framework in Frameworks */,
-				3C629C931B99A61E00A424F9 /* GPImageRecognitionEngine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +256,7 @@
 				TargetAttributes = {
 					3C629C661B99A59A00A424F9 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 42QLY4A7LX;
+						DevelopmentTeam = 628U27X7NX;
 					};
 					3C629C7F1B99A59A00A424F9 = {
 						CreatedOnToolsVersion = 6.4;
@@ -379,7 +379,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 宗一郎 富高 (4MAPV6ZNBG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 宗一郎 富高 (4MAPV6ZNBG)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -423,7 +424,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 宗一郎 富高 (4MAPV6ZNBG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 宗一郎 富高 (4MAPV6ZNBG)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -448,16 +450,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 宗一郎 富高 (4MAPV6ZNBG)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/Takuro/Desktop/ImageRecognitionEngine/framework,
+					/Users/soichiro/Documents/_Prog/Git/RuralLab/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ManHole_Proj_v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/Takuro/Desktop/ImageRecognitionEngine/framework,
+					/Users/soichiro/Documents/_Prog/Git/RuralLab/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ManHole_Proj_v2;
@@ -470,16 +472,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 宗一郎 富高 (4MAPV6ZNBG)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/Takuro/Desktop/ImageRecognitionEngine/framework,
+					/Users/soichiro/Documents/_Prog/Git/RuralLab/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ManHole_Proj_v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/Takuro/Desktop/ImageRecognitionEngine/framework,
+					/Users/soichiro/Documents/_Prog/Git/RuralLab/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ManHole_Proj_v2;

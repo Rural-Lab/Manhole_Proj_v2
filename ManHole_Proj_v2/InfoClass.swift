@@ -21,36 +21,52 @@ class InfoClass: GraffitiSubClass{
     @IBOutlet var HomeButton:UIButton?
     @IBOutlet var ChangeButton:UIButton?
     @IBOutlet var TitleLabel:UILabel?
+    @IBOutlet var ShopSign:UIButton?
+    @IBOutlet var ShopSign2:UIButton?
+    @IBOutlet var PopupView:UIView?
+    @IBOutlet var ShopScrollView:UIScrollView?
+    @IBOutlet var ShopImageView:UIImageView?
+    @IBOutlet var BackButton:UIButton?
     
     var ManholeName = ""
     
+    var flag: Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
     }
     
     override func viewDidAppear(animated: Bool) {
-        println("Info")
         CameraInit()
-        
         motionInit(sceneInit())
-        createword("Hello",x: 0.0,y: -50.0,z: 0.0)
         
-        TitleLabel?.text = ManholeName + ":Infomation"
-        TitleLabel?.backgroundColor = UIColor(red: 1.0, green: 0.9, blue: 0.29, alpha: 0.7)
+        
+        TitleLabel?.text = ManholeName + "Info"
         ChangeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
         ChangeButton?.tag = 2
         HomeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
         HomeButton?.setImage(UIImage(named: "Img/HomeIcon.png"), forState: .Normal)
         HomeButton?.frame = CGRectMake(10, 2, 35, 35)
         HomeButton?.tag = 3
-        
         self.view.addSubview(TitleLabel!)
         self.view.addSubview(HomeButton!)
         self.view.addSubview(ChangeButton!)
         
-
+        
+        ShopSign?.addTarget(self, action: "ClickSign:", forControlEvents: .TouchUpInside)
+        //        ShopSign?.frame = CGRectMake(32, 48, 36, 40)
+        ShopSign?.tag = 10
+        self.view.addSubview(ShopSign!)
+        
+        ShopSign2?.addTarget(self, action: "ClickSign:", forControlEvents: .TouchUpInside)
+        //        ShopSign2?.frame = CGRectMake(32, 48, 36, 40)
+        ShopSign2?.tag = 11
+        self.view.addSubview(ShopSign2!)
+        
+        flag = false
     }
+    
     
     func ClickButton(sender:UIButton){
         if sender.tag == 2{
@@ -86,8 +102,8 @@ class InfoClass: GraffitiSubClass{
         HomeButton = nil
         ChangeButton = nil
         TitleLabel = nil
-        self.view.removeFromSuperview()
 //        removeAllSubviews(self.view)
+        self.view.removeFromSuperview()
     }
     
     func removeAllSubviews(parentView: UIView){
@@ -137,7 +153,44 @@ class InfoClass: GraffitiSubClass{
         mySession.startRunning()
         
     }
-
+    
+    //店情報を重ねて表示
+    func ClickSign(sender:UIButton){
+        //        let shopView = ShopView()
+        //        shopView.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        //        shopView.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        //        self.presentViewController(shopView, animated: true, completion:nil)
+        if !flag{
+            PopupView?.hidden = false
+            
+            if sender.tag == 10{
+                let shopImage01 = UIImage(named:"Img/shop01.jpg")!
+                ShopImageView?.image = shopImage01
+                self.PopupView!.addSubview(ShopImageView!)
+            }else if sender.tag == 11{
+                let shopImage02 = UIImage(named:"Img/shop02.jpg")!
+                ShopImageView?.image = shopImage02
+                self.PopupView!.addSubview(ShopImageView!)
+            }
+            
+            PopupView?.backgroundColor = UIColor.whiteColor()
+            PopupView?.layer.cornerRadius = 4.0
+            self.view.addSubview(PopupView!)
+            
+            BackButton?.setImage(UIImage(named: "Img/BackIcon.png"), forState: .Normal)
+            BackButton?.addTarget(self, action: "BackButtonAct:", forControlEvents: .TouchUpInside)
+            BackButton?.frame = CGRectMake(8, 8, 46, 30)
+            self.PopupView!.addSubview(BackButton!)
+            
+            flag = true
+        }
+    }
+    
+    func BackButtonAct(sender:UIButton){
+        PopupView?.hidden = true
+        flag = false
+    }
+    
 }
 
 
