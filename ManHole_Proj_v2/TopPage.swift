@@ -160,6 +160,7 @@ public class TopPage: Recog, CLLocationManagerDelegate {
         }
         else if segue.identifier == "Info"{
             var VC : InfoClass = segue.destinationViewController as! InfoClass
+            VC.ManholeName = message
         }
         
     }
@@ -210,10 +211,11 @@ public class TopPage: Recog, CLLocationManagerDelegate {
     }
     
     override public func viewDidDisappear(animated: Bool) {
+        println("disappear")
         myLocationManager = nil
         AlbumButton = nil
-        removeAllSubviews(self.view)
-        
+//        removeAllSubviews(self.view)
+        self.view.removeFromSuperview()
     }
     
     func removeAllSubviews(parentView: UIView){

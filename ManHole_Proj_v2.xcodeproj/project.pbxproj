@@ -11,6 +11,8 @@
 		3C6164FE1B9A07C300F7720D /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 3C6164FD1B9A07C300F7720D /* Base.lproj */; };
 		3C6165041B9A095D00F7720D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6165021B9A095D00F7720D /* Main.storyboard */; };
 		3C6165071B9A096100F7720D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C6165051B9A096100F7720D /* LaunchScreen.xib */; };
+		3C61650A1B9A912600F7720D /* Manhole.bin in Resources */ = {isa = PBXBuildFile; fileRef = 3C6165081B9A912600F7720D /* Manhole.bin */; };
+		3C61650B1B9A912600F7720D /* Manhole.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 3C6165091B9A912600F7720D /* Manhole.yaml */; };
 		3C629C6D1B99A59A00A424F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C629C6C1B99A59A00A424F9 /* main.m */; };
 		3C629C701B99A59A00A424F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C629C6F1B99A59A00A424F9 /* AppDelegate.m */; };
 		3C629C731B99A59A00A424F9 /* Recog.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C629C721B99A59A00A424F9 /* Recog.mm */; };
@@ -32,8 +34,6 @@
 		3C629CE61B99BDF800A424F9 /* GraffitiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C629CDC1B99BDF800A424F9 /* GraffitiClass.swift */; };
 		3C629CE71B99BDF800A424F9 /* GraffitiSubClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C629CDD1B99BDF800A424F9 /* GraffitiSubClass.swift */; };
 		3C629CEA1B99BDF800A424F9 /* InfoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C629CE01B99BDF800A424F9 /* InfoClass.swift */; };
-		3C629CEB1B99BDF800A424F9 /* Manhole.bin in Resources */ = {isa = PBXBuildFile; fileRef = 3C629CE11B99BDF800A424F9 /* Manhole.bin */; };
-		3C629CEC1B99BDF800A424F9 /* Manhole.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 3C629CE21B99BDF800A424F9 /* Manhole.yaml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +51,8 @@
 		3C6164FD1B9A07C300F7720D /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		3C6165031B9A095D00F7720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3C6165061B9A096100F7720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3C6165081B9A912600F7720D /* Manhole.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = Manhole.bin; sourceTree = "<group>"; };
+		3C6165091B9A912600F7720D /* Manhole.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Manhole.yaml; sourceTree = "<group>"; };
 		3C629C671B99A59A00A424F9 /* ManHole_Proj_v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManHole_Proj_v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C629C6B1B99A59A00A424F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C629C6C1B99A59A00A424F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -79,8 +81,6 @@
 		3C629CDC1B99BDF800A424F9 /* GraffitiClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiClass.swift; sourceTree = "<group>"; };
 		3C629CDD1B99BDF800A424F9 /* GraffitiSubClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiSubClass.swift; sourceTree = "<group>"; };
 		3C629CE01B99BDF800A424F9 /* InfoClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoClass.swift; sourceTree = "<group>"; };
-		3C629CE11B99BDF800A424F9 /* Manhole.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = Manhole.bin; sourceTree = "<group>"; };
-		3C629CE21B99BDF800A424F9 /* Manhole.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Manhole.yaml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,10 +133,10 @@
 		3C629C691B99A59A00A424F9 /* ManHole_Proj_v2 */ = {
 			isa = PBXGroup;
 			children = (
+				3C6165081B9A912600F7720D /* Manhole.bin */,
+				3C6165091B9A912600F7720D /* Manhole.yaml */,
 				3C6164FB1B9A07B100F7720D /* Img */,
 				3C629CED1B99C2A800A424F9 /* Script */,
-				3C629CE11B99BDF800A424F9 /* Manhole.bin */,
-				3C629CE21B99BDF800A424F9 /* Manhole.yaml */,
 				3C629C771B99A59A00A424F9 /* Images.xcassets */,
 				3C6165021B9A095D00F7720D /* Main.storyboard */,
 				3C6165051B9A096100F7720D /* LaunchScreen.xib */,
@@ -288,12 +288,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C61650A1B9A912600F7720D /* Manhole.bin in Resources */,
 				3C6164FC1B9A07B100F7720D /* Img in Resources */,
 				3C6164FE1B9A07C300F7720D /* Base.lproj in Resources */,
-				3C629CEC1B99BDF800A424F9 /* Manhole.yaml in Resources */,
 				3C6165071B9A096100F7720D /* LaunchScreen.xib in Resources */,
 				3C6165041B9A095D00F7720D /* Main.storyboard in Resources */,
-				3C629CEB1B99BDF800A424F9 /* Manhole.bin in Resources */,
+				3C61650B1B9A912600F7720D /* Manhole.yaml in Resources */,
 				3C629C781B99A59A00A424F9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

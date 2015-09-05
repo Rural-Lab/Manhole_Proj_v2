@@ -17,7 +17,8 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     var myDevice : AVCaptureDevice!
     // 画像のアウトプット.
     var myImageOutput : AVCaptureStillImageOutput!
-
+    
+    var ManholeName = ""
     
     @IBOutlet var HomeButton:UIButton?
     @IBOutlet var ChangeButton:UIButton?
@@ -32,7 +33,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     var CurrentSubView = "None"
 
     var Cur_image : UIImage! = nil
-    var canvas_View = UIImageView()
+    var canvas_View : UIImageView?
     var touchedPoint : CGPoint = CGPointZero
     var bezierPath : UIBezierPath! = nil
     var firstMovedFlag : Bool = true
@@ -47,7 +48,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         
         CameraInit()
         motionInit(sceneInit())
-        LoadFile()
+        LoadFile(ManholeName)
         buttonInit()
         textFieldInit()
         imageViewInit()
@@ -80,13 +81,16 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         SelectWindow = nil
         subWindow = nil
         myTextField = nil
-        imageView = nil
         CurrentImage=nil
+        imageView = nil
+        canvas_View = nil
         Cur_image=nil
         bezierPath=nil
         
-        removeAllSubviews(self.view)
+        println("diddispaer")
+//        removeAllSubviews(self.view)
         
+        self.view.removeFromSuperview()
     }
 
     //removeAllSubviews
@@ -95,7 +99,6 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         for subview in subviews {
             subview.removeFromSuperview()
         }
-        
     }
     
     //-------------------------------Initialize-------------------------------------
@@ -227,21 +230,21 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     //CanvasInit
     func CanvasInit(){
         canvas_View = UIImageView(frame: CGRectMake(0, 0, 260, 260))
-        canvas_View.layer.position = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/5*2)
-        canvas_View.image = UIImage(named: "Img/White.png")
-        canvas_View.backgroundColor = UIColor.clearColor()
-        canvas_View.layer.borderWidth = 2
-        canvas_View.layer.borderColor = UIColor(red: 0.8, green: 0.0, blue: 0.8, alpha: 0.7).CGColor
-        self.view.addSubview(canvas_View)
-        Cur_image = canvas_View.image
-        canvas_View.hidden = true
+        canvas_View?.layer.position = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/5*2)
+        canvas_View?.image = UIImage(named: "Img/White.png")
+        canvas_View?.backgroundColor = UIColor.clearColor()
+        canvas_View?.layer.borderWidth = 2
+        canvas_View?.layer.borderColor = UIColor(red: 0.8, green: 0.0, blue: 0.8, alpha: 0.7).CGColor
+        self.view.addSubview(canvas_View!)
+        Cur_image = canvas_View?.image
+        canvas_View?.hidden = true
     }
     
     
     //-------------------------------textField-------------------------------------
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-        SaveString(textField.text)
+        SaveString(textField.text, ManholeName: ManholeName)
         
         let tmpviwe = SelectWindow?.viewWithTag(1)
         tmpviwe?.backgroundColor = UIColor.clearColor()
@@ -271,7 +274,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         myTextField!.hidden = true
         imageView?.hidden = true
         CurrentImage=nil
-        canvas_View.hidden = true
+        canvas_View?.hidden = true
         CurrentImage=nil
         
         for i in 1..<5{
@@ -298,6 +301,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
             }
             sender.backgroundColor = UIColor.whiteColor()
             CurrentSubView="Illust"
+            
             IllustIcon()
             
         case 3:
@@ -335,10 +339,10 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
             
         }
         else{
-            SaveImage(Cur_image)
-            canvas_View.hidden = true
-            canvas_View.image = UIImage(named: "Img/White.png")
-            Cur_image = canvas_View.image
+            SaveImage(Cur_image, ManholeName:ManholeName)
+            canvas_View?.hidden = true
+            canvas_View?.image = UIImage(named: "Img/White.png")
+            Cur_image = canvas_View?.image
         }
     }
     
@@ -364,7 +368,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         else{
             println("OKButten")
 //            createword("Hello")
-            SaveImage(CurrentImage!)
+            SaveImage(CurrentImage!, ManholeName:ManholeName)
             imageView?.hidden = true
             CurrentImage=nil
         }
@@ -397,6 +401,9 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     
     //Illust Button Pushed
     func IllustIcon(){
+        canvas_View?.image = UIImage(named: "Img/White.png")
+        canvas_View?.backgroundColor = UIColor.clearColor()
+        
         var IconWidth = self.view.frame.width/6
         var marginWidth = self.view.frame.width/15
         
@@ -435,7 +442,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         EnterButton.tag = 5
         EnterButton.backgroundColor = UIColor.redColor()
         self.subWindow?.addSubview(EnterButton)
-        canvas_View.hidden = false
+        canvas_View?.hidden = false
 
     }
     
@@ -499,8 +506,11 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     
     //書くため,No.1
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        if self.canvas_View == nil {
+            return;
+        }
         for touch: AnyObject in touches {
-            touchedPoint = touch.locationInView(self.canvas_View)
+            touchedPoint = touch.locationInView(canvas_View)
             bezierPath = UIBezierPath()
             bezierPath.moveToPoint(touchedPoint)
             firstMovedFlag = true
@@ -513,15 +523,15 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
             return;
         }
         for touch: AnyObject in touches {
-            let currentPoint = touch.locationInView(self.canvas_View)
+            let currentPoint = touch.locationInView(canvas_View)
             if firstMovedFlag {
                 firstMovedFlag = false
                 touchedPoint = currentPoint
                 return
             }
-            let middlePoint = self.midPoint(touchedPoint, point1: currentPoint)
+            let middlePoint = midPoint(touchedPoint, point1: currentPoint)
             bezierPath.addQuadCurveToPoint(middlePoint, controlPoint: touchedPoint)
-            self.drawLinePreview(currentPoint)
+            drawLinePreview(currentPoint)
             touchedPoint = currentPoint
         }
     }
@@ -533,37 +543,37 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
             return;
         }
         for touch: AnyObject in touches {
-            let currentPoint = touch.locationInView(self.canvas_View)
+            let currentPoint = touch.locationInView(canvas_View)
             bezierPath.addQuadCurveToPoint(currentPoint, controlPoint: touchedPoint)
-            self.drawline()
+            drawline()
             bezierPath = nil
         }
     }
     
     //書くため,No.4
     func drawLinePreview(endPoint:CGPoint){
-        UIGraphicsBeginImageContextWithOptions(canvas_View.bounds.size, false, 0.0)
-        canvas_View.image?.drawInRect(canvas_View.bounds)
+        UIGraphicsBeginImageContextWithOptions(canvas_View!.bounds.size, false, 0.0)
+        canvas_View!.image?.drawInRect(canvas_View!.bounds)
         CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound)
-        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), self.width)
-        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(),self.red,self.green,self.blue, 0.8)
+        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), width)
+        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(),red,green,blue, 0.8)
         CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchedPoint.x, touchedPoint.y)
         CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), endPoint.x, endPoint.y)
         CGContextStrokePath(UIGraphicsGetCurrentContext())
-        canvas_View.image = UIGraphicsGetImageFromCurrentImageContext()
+        canvas_View?.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
     }
     
     //書くため,No.5
     func drawline(){
-        UIGraphicsBeginImageContextWithOptions(canvas_View.bounds.size, false, 0.0)
-        Cur_image.drawInRect(canvas_View.bounds)
-        bezierPath.lineWidth = self.width
+        UIGraphicsBeginImageContextWithOptions(canvas_View!.bounds.size, false, 0.0)
+        Cur_image.drawInRect(canvas_View!.bounds)
+        bezierPath.lineWidth = width
         bezierPath.lineCapStyle = kCGLineCapRound
-        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(),self.red,self.green,self.blue, 0.8)
+        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(),red,green,blue, 0.8)
         bezierPath.stroke()
         Cur_image = UIGraphicsGetImageFromCurrentImageContext()
-        canvas_View.image = Cur_image
+        canvas_View?.image = Cur_image
         
         UIGraphicsEndImageContext()
     }
@@ -584,6 +594,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         }
         else if segue.identifier == "ChangeToInfo"{
             var VC : InfoClass = segue.destinationViewController as! InfoClass
+            VC.ManholeName = self.ManholeName
         }
     }
 

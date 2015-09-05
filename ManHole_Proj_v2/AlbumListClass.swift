@@ -97,10 +97,10 @@ class AlbumListClass: UIViewController {
     }
     
     override func viewDidDisappear(animated: Bool) {
-        removeAllSubviews(self.view)
+//        removeAllSubviews(self.view)
         myScrollView = nil
         ChangeButton = nil
-        
+        self.view.removeFromSuperview()
     }
     
     func removeAllSubviews(parentView: UIView){

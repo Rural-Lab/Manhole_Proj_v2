@@ -82,10 +82,11 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
     }
     
     override func viewDidDisappear(animated: Bool) {
-        removeAllSubviews(self.view)
+//        removeAllSubviews(self.view)
         myMapView = nil
         HomeButton = nil
         ChangeButton = nil
+        self.view.removeFromSuperview()
     }
     
     func removeAllSubviews(parentView: UIView){

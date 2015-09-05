@@ -12,5 +12,7 @@
 
 -(void)RecogInit;
 
+@property (strong, nonatomic) NSString* message;
+
 @end
 

@@ -4,7 +4,7 @@ GPFineRecognizer:
    detectorType: ORB
    descriptorType: ORB
 trainDb:
-   datasetTag: Manhole_Data
+   datasetTag: Manhole
    imageNum: 3
    featureNum: 1322
    threshold: 0.

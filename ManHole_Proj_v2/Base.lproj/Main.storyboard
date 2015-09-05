@@ -7,7 +7,7 @@
         <!--Top Page-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TopPage" customModule="OpenCVObj_c" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TopPage" customModule="ManHole_Proj_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,7 +25,7 @@
         <!--Info Class-->
         <scene sceneID="I2q-Yl-0RO">
             <objects>
-                <viewController id="6ME-VC-u1s" customClass="InfoClass" customModule="OpenCVObj_c" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6ME-VC-u1s" customClass="InfoClass" customModule="ManHole_Proj_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ecq-9d-XwA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,7 +70,7 @@
         <!--Graffiti Class-->
         <scene sceneID="xum-pN-osr">
             <objects>
-                <viewController id="KOn-vV-BQD" customClass="GraffitiClass" customModule="OpenCVObj_c" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KOn-vV-BQD" customClass="GraffitiClass" customModule="ManHole_Proj_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BfR-rE-z5g">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -110,12 +110,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dki-rq-cPp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="706" y="486"/>
+            <point key="canvasLocation" x="730" y="494"/>
         </scene>
         <!--Album Map Class-->
         <scene sceneID="Bnu-yw-0qA">
             <objects>
-                <viewController id="YlD-X5-CHO" customClass="AlbumMapClass" customModule="OpenCVObj_c" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YlD-X5-CHO" customClass="AlbumMapClass" customModule="ManHole_Proj_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Pm-dc-enL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,7 +151,7 @@
         <!--Album List Class-->
         <scene sceneID="iDL-59-0i3">
             <objects>
-                <viewController id="Fc0-D3-YPE" customClass="AlbumListClass" customModule="OpenCVObj_c" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Fc0-D3-YPE" customClass="AlbumListClass" customModule="ManHole_Proj_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KER-A1-gfX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,8 +189,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Eaw-2G-g4S"/>
-        <segue reference="rVM-lI-Ma2"/>
         <segue reference="Nss-HO-Qw2"/>
+        <segue reference="DJ2-Zf-FZd"/>
+        <segue reference="4hQ-qQ-GKB"/>
     </inferredMetricsTieBreakers>
 </document>

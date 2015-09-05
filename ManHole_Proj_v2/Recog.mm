@@ -14,7 +14,7 @@
     [self.recognitionEngine setDelegate:self];
     
     GPFineRecognizer *recognizer = [[GPFineRecognizer alloc] init];
-    [recognizer loadFromPath:[[NSBundle mainBundle] resourcePath] fileName:@"Manhole_Data"];
+    [recognizer loadFromPath:[[NSBundle mainBundle] resourcePath] fileName:@"Manhole"];
     
     [self.recognitionEngine setRecognizer:recognizer];
 }
@@ -27,10 +27,15 @@
             [self.recognitionEngine stop];
             self.recognitionEngine = nil;
             
+            _message = [result objectForKey:@(GPRecognizerResultVisualWordTag)];
+            
             [self performSegueWithIdentifier:@"Info" sender:self];
             
+            [self.view removeFromSuperview];
+            
 //            dispatch_async(dispatch_get_main_queue(), ^{
-//                NSString* message = [[NSString alloc]
+            
+//                _message = [[NSString alloc]
 //                                     initWithFormat:@"%@ : %@\nスコア : %.2f%%\n\nキーポイント検出 : %.3f秒\n特徴量の計算 : %.3f秒\nマッチング : %.3f秒\n"
 //                                     , [result objectForKey:@(GPRecognizerResultDatasetTag)]
 //                                     , [result objectForKey:@(GPRecognizerResultVisualWordTag)]
@@ -38,9 +43,10 @@
 //                                     , [[result objectForKey:@(GPRecognizerResultKeypointElapsedTime)] doubleValue]
 //                                     , [[result objectForKey:@(GPRecognizerResultDescriptionElapsedTime)] doubleValue]
 //                                     , [[result objectForKey:@(GPRecognizerResultMatchElapsedTime)] doubleValue]];
-//                
-//                [[[UIAlertView alloc] initWithTitle:@"検出結果" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"閉じる", nil] show];
+////
+////                [[[UIAlertView alloc] initWithTitle:@"検出結果" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"閉じる", nil] show];
 //            });
+            
         }
     }
 }
@@ -52,6 +58,5 @@
 -(void)viewDidAppear:(BOOL)animated{
     [self.recognitionEngine start];
 }
-
 
 @end

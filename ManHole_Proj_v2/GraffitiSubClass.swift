@@ -230,7 +230,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         
     }
     
-    func SaveString(Text:String){
+    func SaveString(Text:String, ManholeName:String){
         let scnView = self.view.viewWithTag(10) as! SCNView
         let scene = scnView.scene
         let cameraNode = scene?.rootNode.childNodeWithName("cameraNode", recursively: true)
@@ -241,8 +241,9 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
         
+        let fileName = ManholeName + "Data.dat"
         
-        let filePath = paths.stringByAppendingPathComponent("ManholeGraffitidata.dat")
+        let filePath = paths.stringByAppendingPathComponent(fileName)
         
         //保存するデータ
         let array:NSMutableArray = [
@@ -276,7 +277,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         }
     }
     
-    func SaveImage(Image:UIImage){
+    func SaveImage(Image:UIImage, ManholeName:String){
         let scnView = self.view.viewWithTag(10) as! SCNView
         let scene = scnView.scene
         let cameraNode = scene?.rootNode.childNodeWithName("cameraNode", recursively: true)
@@ -288,8 +289,9 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
         
         //保存するファイルの名前
-//        let filePath = paths + "ManholeGraffitidata.dat"
-        let filePath = paths.stringByAppendingPathComponent("ManholeGraffitidata.dat")
+        let fileName = ManholeName + "Data.dat"
+        
+        let filePath = paths.stringByAppendingPathComponent(fileName)
         
         let fileManager = NSFileManager.defaultManager()
         //file exist?
@@ -334,11 +336,13 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         
     }
     
-    func LoadFile(){
+    func LoadFile(ManholeName:String){
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
         
         //保存するファイルの名前
-        let filePath = paths.stringByAppendingPathComponent("ManholeGraffitidata.dat")
+        let fileName = ManholeName + "Data.dat"
+        
+        let filePath = paths.stringByAppendingPathComponent(fileName)
         
         let fileManager = NSFileManager.defaultManager()
         //file exist?

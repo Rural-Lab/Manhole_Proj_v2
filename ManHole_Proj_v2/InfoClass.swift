@@ -22,16 +22,21 @@ class InfoClass: GraffitiSubClass{
     @IBOutlet var ChangeButton:UIButton?
     @IBOutlet var TitleLabel:UILabel?
     
+    var ManholeName = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        motionInit(sceneInit())
     }
     
     override func viewDidAppear(animated: Bool) {
+        println("Info")
         CameraInit()
         
-        TitleLabel?.text = "Infomation"
+        motionInit(sceneInit())
+        createword("Hello",x: 0.0,y: -50.0,z: 0.0)
+        
+        TitleLabel?.text = ManholeName + ":Infomation"
         TitleLabel?.backgroundColor = UIColor(red: 1.0, green: 0.9, blue: 0.29, alpha: 0.7)
         ChangeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
         ChangeButton?.tag = 2
@@ -43,6 +48,8 @@ class InfoClass: GraffitiSubClass{
         self.view.addSubview(TitleLabel!)
         self.view.addSubview(HomeButton!)
         self.view.addSubview(ChangeButton!)
+        
+
     }
     
     func ClickButton(sender:UIButton){
@@ -59,6 +66,7 @@ class InfoClass: GraffitiSubClass{
         }
         else if segue.identifier == "ChangeToGraffiti"{
             var VC : GraffitiClass = segue.destinationViewController as! GraffitiClass
+            VC.ManholeName = self.ManholeName
         }
     }
     
@@ -78,7 +86,8 @@ class InfoClass: GraffitiSubClass{
         HomeButton = nil
         ChangeButton = nil
         TitleLabel = nil
-        removeAllSubviews(self.view)
+        self.view.removeFromSuperview()
+//        removeAllSubviews(self.view)
     }
     
     func removeAllSubviews(parentView: UIView){
