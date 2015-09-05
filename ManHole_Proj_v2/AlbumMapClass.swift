@@ -16,6 +16,8 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
     @IBOutlet var HomeButton: UIButton?
     @IBOutlet var ChangeButton: UIButton?
     
+    @IBOutlet var TitleLabel: UILabel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +32,37 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
         
         // MapViewをViewに追加.
         self.view.addSubview(myMapView)
+        
+        var myPin: MKPointAnnotation = MKPointAnnotation()
+        myPin.coordinate = CLLocationCoordinate2DMake(35.1748, 135.0707)
+        myPin.title = "福知山"
+        myPin.subtitle = "2015/08/19"
+        myMapView.addAnnotation(myPin)
+        var myPin2: MKPointAnnotation = MKPointAnnotation()
+        myPin2.coordinate = CLLocationCoordinate2DMake(34.8939, 135.8059)
+        myPin2.title = "宇治"
+        myPin2.subtitle = "2015/08/19"
+        myMapView.addAnnotation(myPin2)
+        var myPin3: MKPointAnnotation = MKPointAnnotation()
+        myPin3.coordinate = CLLocationCoordinate2DMake(34.8846, 135.7000)
+        myPin3.title = "八幡"
+        myPin3.subtitle = "2015/08/19"
+        myMapView.addAnnotation(myPin3)
+        var myPin4: MKPointAnnotation = MKPointAnnotation()
+        myPin4.coordinate = CLLocationCoordinate2DMake(35.5256, 139.3111)
+        myPin4.title = "ふじみ野市"
+        myPin4.subtitle = "2015/08/10"
+        myMapView.addAnnotation(myPin4)
+        var myPin5: MKPointAnnotation = MKPointAnnotation()
+        myPin5.coordinate = CLLocationCoordinate2DMake(35.3721, 140.1119)
+        myPin5.title = "千葉市"
+        myPin5.subtitle = "2015/08/10"
+        myMapView.addAnnotation(myPin5)
+        var myPin6: MKPointAnnotation = MKPointAnnotation()
+        myPin6.coordinate = CLLocationCoordinate2DMake(35.1825, 139.1841)
+        myPin6.title = "大磯町"
+        myPin6.subtitle = "2015/08/10"
+        myMapView.addAnnotation(myPin6)
         
         // 中心点の緯度経度.
         let myLat: CLLocationDegrees = 38.2586
@@ -46,10 +79,12 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
         // MapViewに反映.
         myMapView.setRegion(myRegion, animated: true)
 
-        
+        self.view.addSubview(TitleLabel!)
         ChangeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
         ChangeButton?.tag = 2
+        HomeButton?.frame = CGRectMake(10, 2, 35, 35)
         HomeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
+        HomeButton?.setImage(UIImage(named: "Img/HomeIcon.png"), forState: .Normal)
         HomeButton?.tag = 3
         self.view.addSubview(HomeButton!)
         self.view.addSubview(ChangeButton!)

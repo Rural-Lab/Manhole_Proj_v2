@@ -240,18 +240,18 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
             
             cameraNode.orientation = rq
             
-//            if self.InfoFlag {
-//                self.InfoButton?.hidden = true
-//                if Info!.position.x - subBoxNode!.worldTransform.m41 > -7 && Info!.position.x - subBoxNode!.worldTransform.m41 < 10{
-//                    if Info!.position.y - subBoxNode!.worldTransform.m42 > -7 && Info!.position.y - subBoxNode!.worldTransform.m42 < 10{
-//                        if Info!.position.z - subBoxNode!.worldTransform.m43 > -7 && Info!.position.y - subBoxNode!.worldTransform.m43 < 10{
-//                            self.InfoButton?.hidden = false
-////                            self.InfoButton?.tag =
-//                        }
-//
-//                    }
-//                }
-//            }
+            if self.InfoFlag {
+                self.InfoButton?.hidden = true
+                if Info!.position.x - subBoxNode!.worldTransform.m41 > -7 && Info!.position.x - subBoxNode!.worldTransform.m41 < 10{
+                    if Info!.position.y - subBoxNode!.worldTransform.m42 > -7 && Info!.position.y - subBoxNode!.worldTransform.m42 < 10{
+                        if Info!.position.z - subBoxNode!.worldTransform.m43 > -7 && Info!.position.y - subBoxNode!.worldTransform.m43 < 10{
+                            self.InfoButton?.hidden = false
+//                            self.InfoButton?.tag =
+                        }
+
+                    }
+                }
+            }
         })
         
     }

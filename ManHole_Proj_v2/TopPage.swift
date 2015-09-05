@@ -144,7 +144,7 @@ public class TopPage: Recog, CLLocationManagerDelegate {
         // 現在位置の取得を開始.
 //        myLocationManager.startUpdatingLocation()
         if (sender.tag == 1){
-            self.performSegueWithIdentifier("AlbumList", sender: self)
+            self.performSegueWithIdentifier("TopToAlbum", sender: self)
         }
     }
     
@@ -158,8 +158,8 @@ public class TopPage: Recog, CLLocationManagerDelegate {
     }
     
     override public func prepareForSegue(segue:UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "AlbumList"{
-            var VC : AlbumListClass = segue.destinationViewController as! AlbumListClass
+        if segue.identifier == "TopToAlbum"{
+            var VC : AlbumMapClass = segue.destinationViewController as! AlbumMapClass
         }
         else if segue.identifier == "Info"{
             var VC : InfoClass = segue.destinationViewController as! InfoClass
