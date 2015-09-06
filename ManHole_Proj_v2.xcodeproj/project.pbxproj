@@ -263,7 +263,7 @@
 				TargetAttributes = {
 					3C629C661B99A59A00A424F9 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 628U27X7NX;
+						DevelopmentTeam = 42QLY4A7LX;
 					};
 					3C629C7F1B99A59A00A424F9 = {
 						CreatedOnToolsVersion = 6.4;
@@ -462,13 +462,22 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+<<<<<<< Updated upstream
 					/Users/sonoda/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
+=======
+					/Users/Takuro/Documents/Github/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
+>>>>>>> Stashed changes
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ManHole_Proj_v2/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+<<<<<<< Updated upstream
 					"/Users/sonoda/Manhole_Proj_v2//ManHole_Proj_v2/Framework/",
+=======
+					"/Users/Takuro/Documents/Github/Manhole_Proj_v2//ManHole_Proj_v2/Framework/",
+>>>>>>> Stashed changes
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ManHole_Proj_v2;
@@ -487,13 +496,22 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+<<<<<<< Updated upstream
 					/Users/sonoda/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
+=======
+					/Users/Takuro/Documents/Github/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
+>>>>>>> Stashed changes
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ManHole_Proj_v2/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+<<<<<<< Updated upstream
 					"/Users/sonoda/Manhole_Proj_v2//ManHole_Proj_v2/Framework/",
+=======
+					"/Users/Takuro/Documents/Github/Manhole_Proj_v2//ManHole_Proj_v2/Framework/",
+>>>>>>> Stashed changes
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ManHole_Proj_v2;
