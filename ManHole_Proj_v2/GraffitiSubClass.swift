@@ -191,12 +191,12 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         
         if ManHoleInfo == "Manhole1" {
             scene.background.contents = [
-                UIImage(named: "Img/skybox01/left.png")!,
-                UIImage(named: "Img/skybox01/right.png")!,
-                UIImage(named: "Img/skybox01/up.png")!,
-                UIImage(named: "Img/skybox01/down.png")!,
-                UIImage(named: "Img/skybox01/front.png")!,
-                UIImage(named: "Img/skybox01/back.png")!
+                UIImage(named: "Img/skybox02/left.png")!,
+                UIImage(named: "Img/skybox02/right.png")!,
+                UIImage(named: "Img/skybox02/up.png")!,
+                UIImage(named: "Img/skybox02/down.png")!,
+                UIImage(named: "Img/skybox02/front.png")!,
+                UIImage(named: "Img/skybox02/back.png")!
             ]
         }
         //        scnView.layer.addSublayer(myVideoLayer)
