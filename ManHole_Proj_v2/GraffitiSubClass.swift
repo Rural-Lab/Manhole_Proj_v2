@@ -79,7 +79,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         scene!.rootNode.addChildNode(textNode)
     }
 
-    func createImage(Image:UIImage,x:Float,y:Float,z:Float,Type:String){
+    func createImage(Image:UIImage,x:Float,y:Float,z:Float,Type:String="None"){
         let scnView = self.view.viewWithTag(10) as! SCNView
         let scene = scnView.scene
         let cameraNode = scene?.rootNode.childNodeWithName("cameraNode", recursively: true)
@@ -111,7 +111,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
     }
 
  
-    func sceneInit()->SCNNode{
+    func sceneInit(ManHoleInfo:String = "None")->SCNNode{
         // シーンオブジェクトを作成。これ以降シーンオブジェクトのルートノードに
         // 子ノードを追加していくことでシーンにオブジェクトを追加していく。
         // ここではdaeファイル(3Dデータ)の読み込みを行っている。
@@ -188,6 +188,16 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         let scnView = SCNView()
         scnView.frame = self.view.bounds
         
+        if ManHoleInfo == "Manhole1" {
+            scene.background.contents = [
+                UIImage(named: "Img/skybox01/left.png")!,
+                UIImage(named: "Img/skybox01/right.png")!,
+                UIImage(named: "Img/skybox01/up.png")!,
+                UIImage(named: "Img/skybox01/down.png")!,
+                UIImage(named: "Img/skybox01/front.png")!,
+                UIImage(named: "Img/skybox01/back.png")!
+            ]
+        }
         //        scnView.layer.addSublayer(myVideoLayer)
         // ビューのシーンに今までオブジェクトを追加してきたシーンを代入
         scnView.scene = scene
@@ -316,7 +326,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         let subBoxNode = cameraNode?.childNodeWithName("vectorNode", recursively: true)
         let x=Float(subBoxNode!.worldTransform.m41),y=Float(subBoxNode!.worldTransform.m42),z=Float(subBoxNode!.worldTransform.m43)
         
-        createImage(Image, x:x, y:y, z:z, Type:"none")
+        createImage(Image, x:x, y:y, z:z)
         
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
         
@@ -405,7 +415,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
                     let y = NSString(string: array[i*5+3] as! NSString).floatValue
                     let z = NSString(string: array[i*5+4] as! NSString).floatValue
                     println(image,x,y,z)
-                    createImage(image!, x: x , y: y, z: z, Type:"none")
+                    createImage(image!, x: x , y: y, z: z)
                 }
                 else{
                     println("ロード失敗")

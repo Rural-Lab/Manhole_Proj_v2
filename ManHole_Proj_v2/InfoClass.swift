@@ -49,9 +49,13 @@ class InfoClass: GraffitiSubClass{
         
         CameraInit()
         
-        sceneInit()
-        createImage(UIImage(named: "Img/shop01.jpg")!, x: 50, y: 0, z: 0, Type: "Info01")
-        createImage(UIImage(named: "Img/shop02.jpg")!, x: 0, y: 0, z: 50, Type: "Info02")
+        if ManholeName == "Manhole1" {
+            sceneInit(ManHoleInfo: ManholeName)
+            createImage(UIImage(named: "Img/shop01.jpg")!, x: 50, y: 0, z: 0, Type: "Info01")
+            createImage(UIImage(named: "Img/shop02.jpg")!, x: 0, y: 0, z: 50, Type: "Info02")
+        }else{
+            sceneInit()
+        }
         
         motionInit()
 //        createword("Hello",x: 0.0,y: -50.0,z: 0.0)
