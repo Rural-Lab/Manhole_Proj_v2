@@ -85,7 +85,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         let scene = scnView.scene
         let cameraNode = scene?.rootNode.childNodeWithName("cameraNode", recursively: true)
         
-        let Plane = SCNPlane(width: 30, height: 30)
+        let Plane = SCNPlane(width: 20, height: 20)
         let material = SCNMaterial()
         material.diffuse.contents = Image
         Plane.firstMaterial = material

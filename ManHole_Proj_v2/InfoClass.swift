@@ -31,6 +31,8 @@ class InfoClass: GraffitiSubClass{
 //    @IBOutlet var ShopImageView:UIImageView?
 //    @IBOutlet var BackButton:UIButton?
     var PopUpWindow:UIWindow?
+    var InfoImageView:UIImageView?
+    var Infotext:UITextView?
     
     var ManholeName = ""
     
@@ -54,7 +56,12 @@ class InfoClass: GraffitiSubClass{
             createImage(UIImage(named: "Img/shop01.jpg")!, x: 50, y: 0, z: 0, Type: "Info1")
             createImage(UIImage(named: "Img/shop02.jpg")!, x: 0, y: 0, z: 50, Type: "Info2")
         }
-        
+        else if ManholeName == "Manhole2" {
+            InfoCount=3
+            createImage(UIImage(named: "Img/shop01.jpg")!, x: 50, y: 0, z: 0, Type: "Info1")
+            createImage(UIImage(named: "Img/shop02.jpg")!, x: 0, y: 0, z: 50, Type: "Info2")
+            createImage(UIImage(named: "Img/shop03.jpg")!, x: -50, y: 0, z: 0, Type: "Info3")
+        }
         
         motionInit()
 //        createword("Hello",x: 0.0,y: -50.0,z: 0.0)
@@ -236,11 +243,35 @@ class InfoClass: GraffitiSubClass{
         CancelButton.setImage(UIImage(named: "Img/Cancel.png"), forState: .Normal)
         CancelButton.addTarget(self, action: "CancelPush:", forControlEvents: .TouchUpInside)
         PopUpWindow?.addSubview(CancelButton)
-
+        
+        InfoImageView = UIImageView(frame: CGRectMake(0, 0, PopUpWindow!.frame.width-40, 150))
+        InfoImageView?.layer.position = CGPoint(x: PopUpWindow!.frame.width/2, y: PopUpWindow!.frame.height*2/5)
+        InfoImageView?.image = UIImage(named: "Img/shop03content.jpg")
+        PopUpWindow?.addSubview(InfoImageView!)
+        
+        Infotext = UITextView(frame: CGRectMake(0, 0, PopUpWindow!.frame.width-40, 130))
+        Infotext?.layer.position = CGPoint(x: PopUpWindow!.frame.width/2, y: PopUpWindow!.frame.height*3/4)
+        Infotext?.font = UIFont.systemFontOfSize(20)
+        Infotext?.text = "Shop\nレストラン"
+        PopUpWindow?.addSubview(Infotext!)
+        
     }
     
     func GetInformation(sender:UIButton){
         println(sender.tag)
+        switch sender.tag{
+        case 10:
+            InfoImageView?.image = UIImage(named: "Img/shop01.jpg")
+            Infotext?.text = "Shop\nAngela\n012-345-6789"
+        case 11:
+            InfoImageView?.image = UIImage(named: "Img/shop02.jpg")
+            Infotext?.text = "Shop\nグラン・ゴジエ\n012-345-6789"
+        case 12:
+            InfoImageView?.image = UIImage(named: "Img/shop03content.jpg")
+            Infotext?.text = "Historic spot\n史跡草津宿\n077-567-0030"
+        default:
+            break
+        }
         PopUpWindow?.hidden = false
     }
     
