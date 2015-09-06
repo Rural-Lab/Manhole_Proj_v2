@@ -96,7 +96,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         bezierPath=nil
         
         println("diddispaer")
-        removeAllSubviews(self.view)
+//        removeAllSubviews(self.view)
         
         self.view.removeFromSuperview()
     }

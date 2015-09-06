@@ -31,7 +31,7 @@
                         <outlet property="LogoImage" destination="U6t-dv-hTB" id="RXO-aj-YoK"/>
                         <outlet property="TopTitle" destination="88Y-yD-2yT" id="jpK-pf-M2l"/>
                         <segue destination="6ME-VC-u1s" kind="modal" identifier="Info" id="Eaw-2G-g4S"/>
-                        <segue destination="Fc0-D3-YPE" kind="modal" identifier="TopToAlbum" id="REq-hp-GSU"/>
+                        <segue destination="YlD-X5-CHO" kind="modal" identifier="TopToAlbum" id="FbX-ja-Nix"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -111,22 +111,14 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KM8-bM-xDx">
                                 <rect key="frame" x="10" y="25" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-<<<<<<< Updated upstream
                                 <state key="normal" title="HOME" image="C2AF1A75-6D7B-4E12-895B-3E6D12AFB2AA">
-=======
-                                <state key="normal" title="HOME" image="80151A87-A3E8-4569-B9E7-2761152277B3">
->>>>>>> Stashed changes
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="a25-nX-qxh">
                                 <rect key="frame" x="270" y="25" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-<<<<<<< Updated upstream
                                 <state key="normal" title="Change" image="5E6B4F0C-78E1-465C-80AC-FEF9E10BA8EC">
-=======
-                                <state key="normal" title="Change" image="3DFD8B2F-536B-4E1D-AEE0-0B064B03C6C0">
->>>>>>> Stashed changes
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -374,15 +366,11 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="939" y="1254"/>
+            <point key="canvasLocation" x="827" y="1254"/>
         </scene>
     </scenes>
     <resources>
-<<<<<<< Updated upstream
         <image name="5E6B4F0C-78E1-465C-80AC-FEF9E10BA8EC" width="295" height="295">
-=======
-        <image name="3DFD8B2F-536B-4E1D-AEE0-0B064B03C6C0" width="295" height="295">
->>>>>>> Stashed changes
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -6237,11 +6225,7 @@ BVm1AAVZvQAFWcoABVnPAAVZ0QAFWdMABVnYAAVZ4AAFWeMABVnoAAVZ8AAFWfMABVoFAAVaCAAFWg0A
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAVaDw
 </mutableData>
         </image>
-<<<<<<< Updated upstream
         <image name="C2AF1A75-6D7B-4E12-895B-3E6D12AFB2AA" width="295" height="295">
-=======
-        <image name="80151A87-A3E8-4569-B9E7-2761152277B3" width="295" height="295">
->>>>>>> Stashed changes
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -12116,11 +12100,7 @@ AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAVaDw
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="uHG-sQ-ucx"/>
-<<<<<<< Updated upstream
         <segue reference="Be6-hi-MQ1"/>
         <segue reference="4hQ-qQ-GKB"/>
-=======
-        <segue reference="REq-hp-GSU"/>
->>>>>>> Stashed changes
     </inferredMetricsTieBreakers>
 </document>

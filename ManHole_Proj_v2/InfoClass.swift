@@ -129,7 +129,6 @@ class InfoClass: GraffitiSubClass{
         }
         motionManager.stopDeviceMotionUpdates()
         
-        
         myImageOutput = nil
         myDevice = nil
         mySession = nil
@@ -139,9 +138,8 @@ class InfoClass: GraffitiSubClass{
         PopUpWindow = nil
         InfoButton = nil
         
-        removeAllSubviews(self.view)
         self.view.removeFromSuperview()
-        
+//        removeAllSubviews(self.view)
     }
     
     func removeAllSubviews(parentView: UIView){

@@ -13,10 +13,10 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
 
     // MapView.
     var myMapView : MKMapView!
-    @IBOutlet var HomeButton: UIButton!
-    @IBOutlet var ChangeButton: UIButton!
+    @IBOutlet var HomeButton: UIButton?
+    @IBOutlet var ChangeButton: UIButton?
     
-    @IBOutlet var TitleLabel: UILabel!
+    @IBOutlet var TitleLabel: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,6 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
         
         // Delegateを設定.
         myMapView.delegate = self
-        myMapView.tag = 1
         
         // MapViewをViewに追加.
         self.view.addSubview(myMapView)
@@ -168,10 +167,10 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
                     annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                     manhole = UIImage(named: "Img/SaveManhole10.png")!
                 }else{
-                    annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                    annotationView = MKAnnotationView()
                     manhole = UIImage()
                 }
-            
+                
                 let size = CGSize(width: 30, height: 30)
                 
                 UIGraphicsBeginImageContext(size)
@@ -179,7 +178,6 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
                 var resizeImage = UIGraphicsGetImageFromCurrentImageContext()
                 UIGraphicsEndImageContext()
                 annotationView.image = resizeImage // ここで好きな画像を設定します
-                resizeImage = nil
                 
                 return annotationView
                 
@@ -204,17 +202,13 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.applyMapViewMemoryFix()
-    }
-    
     override func viewDidDisappear(animated: Bool) {
+//        removeAllSubviews(self.view)
+        myMapView = nil
         HomeButton = nil
         ChangeButton = nil
-        TitleLabel = nil
         
-        removeAllSubviews(self.view)
+        
         self.view.removeFromSuperview()
     }
     
@@ -223,26 +217,6 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
         for subview in subviews {
             subview.removeFromSuperview()
         }
-    }
-    
-    func applyMapViewMemoryFix(){
-        switch (self.myMapView.mapType) {
-        case MKMapType.Hybrid:
-            self.myMapView.mapType = MKMapType.Standard
-            break;
-        case MKMapType.Standard:
-            self.myMapView.mapType = MKMapType.Hybrid
-            break;
-        default:
-            break;
-        }
-        self.myMapView.removeAnnotations(self.myMapView.annotations)
-        self.myMapView.showsUserLocation = false
-        self.myMapView.zoomEnabled = false
-        self.myMapView.delegate = nil
-        self.myMapView.superview?.removeFromSuperview()
-        self.myMapView.removeFromSuperview()
-        self.myMapView = nil
     }
 }
 

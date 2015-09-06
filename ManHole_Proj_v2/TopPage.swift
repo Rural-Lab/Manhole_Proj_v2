@@ -28,7 +28,7 @@ public class TopPage: Recog, CLLocationManagerDelegate {
         var myLongitudeLabel:UILabel!
     
     //アルバムボタン
-    @IBOutlet var AlbumButton:UIButton!
+    @IBOutlet var AlbumButton:UIButton?
     
     @IBOutlet weak var TopTitle: UILabel!
     @IBOutlet weak var LogoImage: UIImageView!
@@ -169,7 +169,7 @@ public class TopPage: Recog, CLLocationManagerDelegate {
     
     override public func prepareForSegue(segue:UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "TopToAlbum"{
-            var VC : AlbumListClass = segue.destinationViewController as! AlbumListClass
+            var VC : AlbumMapClass = segue.destinationViewController as! AlbumMapClass
         }
         else if segue.identifier == "Info"{
             var VC : InfoClass = segue.destinationViewController as! InfoClass
@@ -225,11 +225,9 @@ public class TopPage: Recog, CLLocationManagerDelegate {
     
     override public func viewDidDisappear(animated: Bool) {
         println("disappear")
-        myLocationManager.delegate = nil
-        
         myLocationManager = nil
         AlbumButton = nil
-        removeAllSubviews(self.view)
+//        removeAllSubviews(self.view)
         self.view.removeFromSuperview()
     }
     
