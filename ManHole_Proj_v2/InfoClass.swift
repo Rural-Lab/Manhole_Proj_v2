@@ -63,8 +63,11 @@ class InfoClass: GraffitiSubClass{
         TitleLabel?.text = "\nArea Information"
         TitleLabel?.numberOfLines = 2
         TitleLabel?.backgroundColor = UIColor(red: 1.0, green: 0.9, blue: 0.29, alpha: 1.0)
-        TitleButtom?.text = "〒" + "滋賀県草津市野路"
-        
+        if ManholeName == "Manhole1"{
+            TitleButtom?.text = "〒" + "大阪府大阪市北区"
+        }else if ManholeName == "Manhole2"{
+            TitleButtom?.text = "〒" + "滋賀県草津市野路"
+        }
         
         ChangeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
         ChangeButton?.tag = 2
