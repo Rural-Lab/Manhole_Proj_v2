@@ -78,7 +78,9 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
         
         // MapViewに反映.
         myMapView.setRegion(myRegion, animated: true)
-
+        
+        TitleLabel?.text = "\nMap"
+        TitleLabel?.numberOfLines = 2
         self.view.addSubview(TitleLabel!)
         ChangeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
         ChangeButton?.setImage(UIImage(named: "Img/albumlist.png"), forState: .Normal)

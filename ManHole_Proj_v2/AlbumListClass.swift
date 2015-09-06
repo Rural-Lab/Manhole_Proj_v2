@@ -30,6 +30,7 @@ class AlbumListClass: UIViewController {
     @IBOutlet var Manhole11: UIButton?
     
     
+    @IBOutlet var AlbumList: UILabel?
     @IBOutlet var HomeButton: UIButton?
     
     var ContentWindow: UIWindow?
@@ -39,12 +40,15 @@ class AlbumListClass: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        AlbumList?.text = "\nAlbum List"
+        AlbumList?.numberOfLines = 2
         ChangeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
         ChangeButton?.setImage(UIImage(named: "Img/albummap.png"), forState: .Normal)
         ChangeButton?.tag = 2
         HomeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
         HomeButton?.setImage(UIImage(named: "Img/home.png"), forState: .Normal)
         HomeButton?.tag = 3
+        self.view.addSubview(AlbumList!)
         self.view.addSubview(ChangeButton!)
         self.view.addSubview(HomeButton!)
         
