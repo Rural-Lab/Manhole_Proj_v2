@@ -21,6 +21,8 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         // MapViewの生成.
         myMapView = MKMapView()
         

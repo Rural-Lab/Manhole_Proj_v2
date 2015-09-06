@@ -462,13 +462,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/soichiro/Documents/_Prog/Git/RuralLab/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
+					/Users/sonoda/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ManHole_Proj_v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/soichiro/Documents/_Prog/Git/RuralLab/Manhole_Proj_v2//ManHole_Proj_v2/Framework/",
+					"/Users/sonoda/Manhole_Proj_v2//ManHole_Proj_v2/Framework/",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ManHole_Proj_v2;
@@ -487,13 +487,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/soichiro/Documents/_Prog/Git/RuralLab/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
+					/Users/sonoda/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ManHole_Proj_v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/soichiro/Documents/_Prog/Git/RuralLab/Manhole_Proj_v2//ManHole_Proj_v2/Framework/",
+					"/Users/sonoda/Manhole_Proj_v2//ManHole_Proj_v2/Framework/",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ManHole_Proj_v2;

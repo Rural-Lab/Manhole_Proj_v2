@@ -43,6 +43,10 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     var blue :CGFloat = 0.24
     var width :CGFloat = 5.0
     
+    @IBAction func tapscreen(sender: AnyObject) {
+        
+        self.view.endEditing(true)
+    }
     //-------------------------------viewDidLoad-------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -158,7 +162,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
 //        HomeButton?.frame = CGRectMake(10, 2, 35, 35)
         HomeButton?.tag = 3
         
-        TitleLabel?.text = "\nSNS"
+        TitleLabel?.text = "\nCanvas"
         TitleLabel?.numberOfLines = 2
         self.view.addSubview(TitleLabel!)
         self.view.addSubview(HomeButton!)

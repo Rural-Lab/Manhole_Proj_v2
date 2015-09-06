@@ -37,8 +37,21 @@ class AlbumListClass: UIViewController {
     var ManholeImgView: UIImageView?
     var explanationText: UITextView?
 
+    @IBAction func tapscreen(sender: AnyObject) {
+        self.view.endEditing(true)
+        println("test")
+    }
+    
+    func DismissKeyboard(){
+        view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
         
         AlbumList?.text = "\nAlbum List"
         AlbumList?.numberOfLines = 2
@@ -242,7 +255,7 @@ class AlbumListClass: UIViewController {
     }
     
     func WindowInit(){
-        ContentWindow = UIWindow(frame: CGRectMake(0, 0, self.view.frame.width-40, self.view.frame.height-200))
+        ContentWindow = UIWindow(frame: CGRectMake(0, 0, self.view.frame.width-30, self.view.frame.height-200))
         ContentWindow?.layer.position = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
         ContentWindow?.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.9)
         ContentWindow?.makeKeyWindow()
@@ -262,6 +275,7 @@ class AlbumListClass: UIViewController {
         
         explanationText = UITextView(frame: CGRectMake(0, 0, ContentWindow!.frame.width-10, ContentWindow!.frame.height/3))
         explanationText?.layer.position = CGPoint(x: ContentWindow!.frame.width/2, y: ContentWindow!.frame.height*6/7)
+        explanationText?.editable = false
         explanationText?.text = "2015/08/10 \n 大阪府大阪市"
         explanationText?.font = UIFont.systemFontOfSize(20)
         ContentWindow?.addSubview(explanationText!)

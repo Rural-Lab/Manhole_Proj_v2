@@ -40,13 +40,20 @@ class InfoClass: GraffitiSubClass{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+    }
+    
+    func DismissKeyboard(){
+        view.endEditing(true)
     }
     
     override func viewDidAppear(animated: Bool) {
         println("Info")
         InfoFlag = true
         flag = false
+        
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
         
         CameraInit()
         
@@ -253,6 +260,8 @@ class InfoClass: GraffitiSubClass{
         Infotext?.layer.position = CGPoint(x: PopUpWindow!.frame.width/2, y: PopUpWindow!.frame.height*3/4)
         Infotext?.font = UIFont.systemFontOfSize(20)
         Infotext?.text = "Shop\nレストラン"
+        Infotext?.editable = false
+        Infotext?.resignFirstResponder()
         PopUpWindow?.addSubview(Infotext!)
         
     }
