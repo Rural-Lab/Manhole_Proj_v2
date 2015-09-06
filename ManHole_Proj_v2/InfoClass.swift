@@ -211,7 +211,7 @@ class InfoClass: GraffitiSubClass{
         InfoButton = UIButton()
         InfoButton?.frame = CGRectMake(0, 0, 200, 50)
         InfoButton?.backgroundColor = UIColor.redColor()
-        InfoButton?.layer.position = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height-30)
+        InfoButton?.layer.position = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height-70)
         InfoButton?.setTitle("Get infomation", forState: .Normal)
         InfoButton?.addTarget(self, action: "GetInformation:", forControlEvents: .TouchUpInside)
         self.view.addSubview(InfoButton!)

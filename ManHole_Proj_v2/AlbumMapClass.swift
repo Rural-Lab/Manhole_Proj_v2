@@ -81,10 +81,10 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
 
         self.view.addSubview(TitleLabel!)
         ChangeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
+        ChangeButton?.setImage(UIImage(named: "Img/albumlist.png"), forState: .Normal)
         ChangeButton?.tag = 2
-        HomeButton?.frame = CGRectMake(10, 2, 35, 35)
         HomeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
-        HomeButton?.setImage(UIImage(named: "Img/HomeIcon.png"), forState: .Normal)
+        HomeButton?.setImage(UIImage(named: "Img/home.png"), forState: .Normal)
         HomeButton?.tag = 3
         self.view.addSubview(HomeButton!)
         self.view.addSubview(ChangeButton!)
