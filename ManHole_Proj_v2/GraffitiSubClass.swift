@@ -257,6 +257,9 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
             if self.InfoFlag {
                 self.InfoButton?.hidden = true
                 for i in 0..<2{
+                    if Info[i] == nil{
+                        break
+                    }
                     if Info[i]!.position.x - subBoxNode!.worldTransform.m41 > -7 && Info[i]!.position.x - subBoxNode!.worldTransform.m41 < 10{
                         if Info[i]!.position.y - subBoxNode!.worldTransform.m42 > -7 && Info[i]!.position.y - subBoxNode!.worldTransform.m42 < 10{
                             if Info[i]!.position.z - subBoxNode!.worldTransform.m43 > -7 && Info[i]!.position.y - subBoxNode!.worldTransform.m43 < 10{
