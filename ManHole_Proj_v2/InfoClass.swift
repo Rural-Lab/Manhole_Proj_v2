@@ -54,7 +54,7 @@ class InfoClass: GraffitiSubClass{
         if ManholeName == "Manhole1" {
             InfoCount=2
             createImage(UIImage(named: "Img/shop01.jpg")!, x: 50, y: 0, z: 0, Type: "Info1")
-            createImage(UIImage(named: "Img/shop02.jpg")!, x: 0, y: 0, z: 50, Type: "Info2")
+            createImage(UIImage(named: "Img/shop02.jpg")!, x: 0, y: 0, z:50, Type: "Info2")
         }
         else if ManholeName == "Manhole2" {
             InfoCount=3

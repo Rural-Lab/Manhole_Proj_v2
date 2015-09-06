@@ -35,17 +35,17 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
         
         var myPin: MKPointAnnotation = MKPointAnnotation()
         myPin.coordinate = CLLocationCoordinate2DMake(35.1748, 135.0707)
-        myPin.title = "福知山市"
+        myPin.title = "京都府福知山市"
         myPin.subtitle = "2015/08/19"
         myMapView.addAnnotation(myPin)
         var myPin2: MKPointAnnotation = MKPointAnnotation()
-        myPin2.coordinate = CLLocationCoordinate2DMake(34.8939, 135.8059)
-        myPin2.title = "宇治市"
+        myPin2.coordinate = CLLocationCoordinate2DMake(35.2829, 135.2310)
+        myPin2.title = "京都府舞鶴市"
         myPin2.subtitle = "2015/08/19"
         myMapView.addAnnotation(myPin2)
         var myPin3: MKPointAnnotation = MKPointAnnotation()
         myPin3.coordinate = CLLocationCoordinate2DMake(34.8846, 135.7000)
-        myPin3.title = "八幡市"
+        myPin3.title = "京都府八幡市"
         myPin3.subtitle = "2015/08/19"
         myMapView.addAnnotation(myPin3)
         var myPin4: MKPointAnnotation = MKPointAnnotation()
@@ -55,14 +55,35 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
         myMapView.addAnnotation(myPin4)
         var myPin5: MKPointAnnotation = MKPointAnnotation()
         myPin5.coordinate = CLLocationCoordinate2DMake(35.3721, 140.1119)
-        myPin5.title = "千葉市"
+        myPin5.title = "千葉県千葉市"
         myPin5.subtitle = "2015/08/10"
         myMapView.addAnnotation(myPin5)
         var myPin6: MKPointAnnotation = MKPointAnnotation()
         myPin6.coordinate = CLLocationCoordinate2DMake(35.1825, 139.1841)
-        myPin6.title = "大磯町"
+        myPin6.title = "神奈川県大磯町"
         myPin6.subtitle = "2015/08/10"
         myMapView.addAnnotation(myPin6)
+        var myPin7: MKPointAnnotation = MKPointAnnotation()
+        myPin7.coordinate = CLLocationCoordinate2DMake(35.13, 135.14)
+        myPin7.title = "京都府福知山市（三和町）"
+        myPin7.subtitle = "2015/08/19"
+        myMapView.addAnnotation(myPin7)
+        var myPin8: MKPointAnnotation = MKPointAnnotation()
+        myPin8.coordinate = CLLocationCoordinate2DMake(34.7027, 135.4995)
+        myPin8.title = "大阪府大阪市"
+        myPin8.subtitle = "2015/09/07"
+        myMapView.addAnnotation(myPin8)
+        var myPin9: MKPointAnnotation = MKPointAnnotation()
+        myPin9.coordinate = CLLocationCoordinate2DMake(35.0113, 135.5647)
+        myPin9.title = "滋賀県草津本陣"
+        myPin9.subtitle = "2015/09/07"
+        myMapView.addAnnotation(myPin9)
+        var myPin10: MKPointAnnotation = MKPointAnnotation()
+        myPin10.coordinate = CLLocationCoordinate2DMake(35.13, 135.14)
+        myPin10.title = "大阪府大阪市(一般)"
+        myPin10.subtitle = "2015/09/07"
+        myMapView.addAnnotation(myPin10)
+
         
         // 中心点の緯度経度.
         let myLat: CLLocationDegrees = 38.2586
@@ -113,12 +134,39 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
                 
                 let annotationView:MKAnnotationView
                 let manhole:UIImage
-                if(annotation.title == "福知山"){
+                if(annotation.title == "京都府福知山市"){
                     annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                    manhole = UIImage(named: "Img/" + annotation.title! + ".png")!
-                }else{
+                    manhole = UIImage(named: "Img/SaveManhole1.png")!
+                }else if(annotation.title == "京都府福知山市（三和町）"){
+                    annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                    manhole = UIImage(named: "Img/SaveManhole3.png")!
+                }else if(annotation.title == "京都府舞鶴市"){
                     annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                     manhole = UIImage(named: "Img/SaveManhole2.png")!
+                }else if(annotation.title == "京都府八幡市"){
+                    annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                    manhole = UIImage(named: "Img/SaveManhole4.png")!
+                }else if(annotation.title == "神奈川県大磯町"){
+                    annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                    manhole = UIImage(named: "Img/SaveManhole5.png")!
+                }else if(annotation.title == "千葉県千葉市"){
+                    annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                    manhole = UIImage(named: "Img/SaveManhole6.png")!
+                }else if(annotation.title == "埼玉県ふじみ野市"){
+                    annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                    manhole = UIImage(named: "Img/SaveManhole7.png")!
+                }else if(annotation.title == "大阪府大阪市"){
+                    annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                    manhole = UIImage(named: "Img/SaveManhole8.png")!
+                }else if(annotation.title == "滋賀県草津本陣"){
+                    annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                    manhole = UIImage(named: "Img/SaveManhole9.png")!
+                }else if(annotation.title == "大阪府大阪市(一般)"){
+                    annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                    manhole = UIImage(named: "Img/SaveManhole10.png")!
+                }else{
+                    annotationView = MKAnnotationView()
+                    manhole = UIImage()
                 }
                 
                 let size = CGSize(width: 30, height: 30)
@@ -157,6 +205,8 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
         myMapView = nil
         HomeButton = nil
         ChangeButton = nil
+        
+        
         self.view.removeFromSuperview()
     }
     

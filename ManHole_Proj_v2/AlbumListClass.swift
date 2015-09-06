@@ -156,6 +156,18 @@ class AlbumListClass: UIViewController {
         ChangeButton = nil
         ContentWindow = nil
         ManholeImgView = nil
+        explanationText = nil
+        Manhole1 = nil
+        Manhole2 = nil
+        Manhole3 = nil
+        Manhole4 = nil
+        Manhole5 = nil
+        Manhole6 = nil
+        Manhole7 = nil
+        Manhole8 = nil
+        Manhole9 = nil
+        Manhole10 = nil
+        Manhole11 = nil
         
         self.view.removeFromSuperview()
     }
@@ -176,9 +188,9 @@ class AlbumListClass: UIViewController {
         Manhole6?.setImage(UIImage(named: "Img/SaveManhole3.png"), forState: .Normal)
         Manhole7?.setImage(UIImage(named: "Img/SaveManhole4.png"), forState: .Normal)
         Manhole8?.setImage(UIImage(named: "Img/osaka_fu.jpg"), forState: .Normal)
-        Manhole9?.setImage(UIImage(named: "Img/SaveManhole1.png"), forState: .Normal)
-        Manhole10?.setImage(UIImage(named: "Img/SaveManhole1.png"), forState: .Normal)
-        Manhole11?.setImage(UIImage(named: "Img/SaveManhole1.png"), forState: .Normal)
+        Manhole9?.setImage(UIImage(named: "Img/SaveManhole8.png"), forState: .Normal)
+        Manhole10?.setImage(UIImage(named: "Img/SaveManhole9.png"), forState: .Normal)
+        Manhole11?.setImage(UIImage(named: "Img/SaveManhole10.png"), forState: .Normal)
         
         Manhole1?.tag = 11
         Manhole2?.tag = 12
@@ -248,8 +260,8 @@ class AlbumListClass: UIViewController {
         ManholeImgView?.image = UIImage(named: "Img/White.png")
         ContentWindow?.addSubview(ManholeImgView!)
         
-        explanationText = UITextView(frame: CGRectMake(0, 0, self.view.frame.width-10, ContentWindow!.frame.height/3))
-        explanationText?.layer.position = CGPoint(x: ContentWindow!.frame.width/2, y: ContentWindow!.frame.height*2/3)
+        explanationText = UITextView(frame: CGRectMake(0, 0, ContentWindow!.frame.width-10, ContentWindow!.frame.height/3))
+        explanationText?.layer.position = CGPoint(x: ContentWindow!.frame.width/2, y: ContentWindow!.frame.height*6/7)
         explanationText?.text = "2015/08/10 \n 大阪府大阪市"
         explanationText?.font = UIFont.systemFontOfSize(20)
         ContentWindow?.addSubview(explanationText!)
@@ -261,37 +273,37 @@ class AlbumListClass: UIViewController {
         switch sender.tag{
         case 11:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole5.png")
-            explanationText?.text = "2015/08/10 \n "
+            explanationText?.text = "2015/08/10 \n神奈川県大磯町 "
         case 12:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole6.png")
-            explanationText?.text = "2015/08/10 \n "
+            explanationText?.text = "2015/08/10 \n千葉県千葉市 "
         case 13:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole7.png")
-            explanationText?.text = "2015/08/10 \n "
+            explanationText?.text = "2015/08/10 \n埼玉県ふじみ野市 "
         case 14:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole1.png")
-            explanationText?.text = "2015/08/19 \n "
+            explanationText?.text = "2015/08/19 \n 京都府福知山市"
         case 15:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole2.png")
-            explanationText?.text = "2015/08/19 \n "
+            explanationText?.text = "2015/08/19 \n京都府舞鶴市"
         case 16:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole3.png")
-            explanationText?.text = "2015/08/19 \n "
+            explanationText?.text = "2015/08/19 \n京都府福知山市（三和町）"
         case 17:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole4.png")
-            explanationText?.text = "2015/08/19 \n "
+            explanationText?.text = "2015/08/19 \n京都府八幡市 "
         case 18:
-            ManholeImgView?.image = UIImage(named: "Img/osaka_fu.png")
-            explanationText?.text = "2015/08/19 \n "
+            ManholeImgView?.image = UIImage(named: "Img/osaka_fu.jpg")
+            explanationText?.text = "2015/08/19 \n大阪府大阪市 "
         case 19:
-            ManholeImgView?.image = UIImage(named: "Img/SaveManhole5.png")
-            explanationText?.text = "2015/09/07 \n "
+            ManholeImgView?.image = UIImage(named: "Img/SaveManhole8.png")
+            explanationText?.text = "2015/09/07 \n大阪府大阪市 "
         case 20:
-            ManholeImgView?.image = UIImage(named: "Img/SaveManhole5.png")
-            explanationText?.text = "2015/09/07 \n "
+            ManholeImgView?.image = UIImage(named: "Img/SaveManhole9.png")
+            explanationText?.text = "2015/09/07 \n滋賀県草津本陣 "
         case 21:
-            ManholeImgView?.image = UIImage(named: "Img/SaveManhole5.png")
-            explanationText?.text = "2015/09/07 \n "
+            ManholeImgView?.image = UIImage(named: "Img/SaveManhole10.png")
+            explanationText?.text = "2015/09/07 \n大阪府大阪市(一般) "
         default:
             break
         }
