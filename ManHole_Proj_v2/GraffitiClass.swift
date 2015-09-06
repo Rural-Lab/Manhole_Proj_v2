@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreImage
 
 class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     
@@ -383,6 +384,11 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     }
     
     func PushCameraButton(sender:UIButton){
+        let ViewImage = self.view.GetImage() as UIImage
+        let myComposeFilter = CIFilter(name: "CIAdditionCompositing")
+        
+        myComposeFilter.setValue(CIImage(image: ViewImage), forKey: kCIInputImageKey)
+        
         // ビデオ出力に接続.
         let myVideoConnection = myImageOutput.connectionWithMediaType(AVMediaTypeVideo)
         
@@ -394,13 +400,22 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
             
             // JpegからUIIMageを作成.
             let myImage : UIImage = UIImage(data: myImageData)!
-            
+            myComposeFilter.setValue(CIImage(image: myImage), forKey: kCIInputBackgroundImageKey)
+            let finalImage : UIImage = UIImage(CIImage: myComposeFilter.outputImage)!
+            println(finalImage)
             // アルバムに追加.
-            UIImageWriteToSavedPhotosAlbum(myImage, self, nil, nil)
+            UIImageWriteToSavedPhotosAlbum(finalImage, self, "image:didFinishSavingWithError:contextInfo:", nil)
             
         })
     }
 
+    func image(image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutablePointer<Void>) {
+        if error != nil {
+            //プライバシー設定不許可など書き込み失敗時は -3310 (ALAssetsLibraryDataUnavailableError)
+            println(error.code)
+        }
+    }
+    
     //-------------------------------Select Button Func-------------------------------------
     //Char Button Pushed
     func CharIcon(){
@@ -607,6 +622,30 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     }
 
     
+}
+
+extension UIView {
+    
+    func GetImage() -> UIImage{
+        
+        // キャプチャする範囲を取得.
+        let rect = self.bounds
+        
+        // ビットマップ画像のcontextを作成.
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        let context: CGContextRef = UIGraphicsGetCurrentContext()
+        
+        // 対象のview内の描画をcontextに複写する.
+        self.layer.renderInContext(context)
+        
+        // 現在のcontextのビットマップをUIImageとして取得.
+        let capturedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        // contextを閉じる.
+        UIGraphicsEndImageContext()
+        
+        return capturedImage
+    }
 }
 
 
