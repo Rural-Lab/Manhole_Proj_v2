@@ -50,8 +50,9 @@ class InfoClass: GraffitiSubClass{
         
         sceneInit(ManHoleInfo: ManholeName)
         if ManholeName == "Manhole1" {
-            createImage(UIImage(named: "Img/shop01.jpg")!, x: 50, y: 0, z: 0, Type: "Info01")
-            createImage(UIImage(named: "Img/shop02.jpg")!, x: 0, y: 0, z: 50, Type: "Info02")
+            InfoCount=2
+            createImage(UIImage(named: "Img/shop01.jpg")!, x: 50, y: 0, z: 0, Type: "Info1")
+            createImage(UIImage(named: "Img/shop02.jpg")!, x: 0, y: 0, z: 50, Type: "Info2")
         }
         
         motionInit()
@@ -116,6 +117,9 @@ class InfoClass: GraffitiSubClass{
         HomeButton = nil
         ChangeButton = nil
         TitleLabel = nil
+        PopUpWindow = nil
+        InfoButton = nil
+        
         self.view.removeFromSuperview()
 //        removeAllSubviews(self.view)
     }

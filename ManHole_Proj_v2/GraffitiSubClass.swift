@@ -25,6 +25,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
     var RayBox_X:Float=0.0, RayBox_Y:Float=0.0, RayBox_Z:Float=0.0
     var InfoFlag = false
     var InfoButton:UIButton?
+    var InfoCount = 0
     
     override func shouldAutorotate() -> Bool {
         return true
@@ -233,9 +234,13 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         
         let scnView = self.view.viewWithTag(10) as! SCNView
         let cameraNode = scnView.scene?.rootNode.childNodeWithName("cameraNode", recursively: true)
-        let Info1 = scnView.scene?.rootNode.childNodeWithName("Info01", recursively: true)
-        let Info2 = scnView.scene?.rootNode.childNodeWithName("Info02", recursively: true)
-        let Info = [Info1,Info2]
+        var Info:[SCNNode] = []
+        for i in 0..<InfoCount {
+            let ChildName = "Info" + String(i+1)
+            println(ChildName)
+            let InfoNode = scnView.scene?.rootNode.childNodeWithName(ChildName, recursively: true)
+            Info.append(InfoNode!)
+        }
         let subBoxNode = cameraNode!.childNodeWithName("vectorNode", recursively: true)
         
         // Start motion data acquisition
@@ -256,17 +261,14 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
             
             if self.InfoFlag {
                 self.InfoButton?.hidden = true
-                for i in 0..<2{
-                    if Info[i] == nil{
-                        break
-                    }
-                    if Info[i]!.position.x - subBoxNode!.worldTransform.m41 > -7 && Info[i]!.position.x - subBoxNode!.worldTransform.m41 < 10{
-                        if Info[i]!.position.y - subBoxNode!.worldTransform.m42 > -7 && Info[i]!.position.y - subBoxNode!.worldTransform.m42 < 10{
-                            if Info[i]!.position.z - subBoxNode!.worldTransform.m43 > -7 && Info[i]!.position.y - subBoxNode!.worldTransform.m43 < 10{
+                for i in 0..<self.InfoCount{
+                    if Info[i].position.x - subBoxNode!.worldTransform.m41 > -7 && Info[i].position.x - subBoxNode!.worldTransform.m41 < 10{
+                        if Info[i].position.y - subBoxNode!.worldTransform.m42 > -7 && Info[i].position.y - subBoxNode!.worldTransform.m42 < 10{
+                            if Info[i].position.z - subBoxNode!.worldTransform.m43 > -7 && Info[i].position.y - subBoxNode!.worldTransform.m43 < 10{
                                 self.InfoButton?.hidden = false
                                 self.InfoButton?.tag = i+10
                             }
-
+                            
                         }
                     }
                 }
