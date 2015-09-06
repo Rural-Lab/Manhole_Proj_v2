@@ -164,7 +164,8 @@ class AlbumListClass: UIViewController {
     }
     
     override func viewDidDisappear(animated: Bool) {
-//        removeAllSubviews(self.view)
+        ManholeImgView?.image = nil
+        
         myScrollView = nil
         ChangeButton = nil
         ContentWindow = nil
@@ -182,6 +183,7 @@ class AlbumListClass: UIViewController {
         Manhole10 = nil
         Manhole11 = nil
         
+        removeAllSubviews(self.view)
         self.view.removeFromSuperview()
     }
     
