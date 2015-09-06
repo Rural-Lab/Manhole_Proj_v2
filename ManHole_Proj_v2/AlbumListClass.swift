@@ -257,26 +257,37 @@ class AlbumListClass: UIViewController {
         switch sender.tag{
         case 11:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole5.png")
+            explanationText?.text = "2015/08/10 \n "
         case 12:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole6.png")
+            explanationText?.text = "2015/08/10 \n "
         case 13:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole7.png")
+            explanationText?.text = "2015/08/10 \n "
         case 14:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole1.png")
+            explanationText?.text = "2015/08/19 \n "
         case 15:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole2.png")
+            explanationText?.text = "2015/08/19 \n "
         case 16:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole3.png")
+            explanationText?.text = "2015/08/19 \n "
         case 17:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole4.png")
+            explanationText?.text = "2015/08/19 \n "
         case 18:
             ManholeImgView?.image = UIImage(named: "Img/osaka_fu.png")
+            explanationText?.text = "2015/08/19 \n "
         case 19:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole5.png")
+            explanationText?.text = "2015/09/07 \n "
         case 20:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole5.png")
+            explanationText?.text = "2015/09/07 \n "
         case 21:
             ManholeImgView?.image = UIImage(named: "Img/SaveManhole5.png")
+            explanationText?.text = "2015/09/07 \n "
         default:
             break
         }

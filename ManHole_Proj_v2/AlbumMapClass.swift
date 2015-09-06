@@ -35,17 +35,17 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
         
         var myPin: MKPointAnnotation = MKPointAnnotation()
         myPin.coordinate = CLLocationCoordinate2DMake(35.1748, 135.0707)
-        myPin.title = "SaveManhole1"
+        myPin.title = "福知山市"
         myPin.subtitle = "2015/08/19"
         myMapView.addAnnotation(myPin)
         var myPin2: MKPointAnnotation = MKPointAnnotation()
         myPin2.coordinate = CLLocationCoordinate2DMake(34.8939, 135.8059)
-        myPin2.title = "宇治"
+        myPin2.title = "宇治市"
         myPin2.subtitle = "2015/08/19"
         myMapView.addAnnotation(myPin2)
         var myPin3: MKPointAnnotation = MKPointAnnotation()
         myPin3.coordinate = CLLocationCoordinate2DMake(34.8846, 135.7000)
-        myPin3.title = "八幡"
+        myPin3.title = "八幡市"
         myPin3.subtitle = "2015/08/19"
         myMapView.addAnnotation(myPin3)
         var myPin4: MKPointAnnotation = MKPointAnnotation()
@@ -111,7 +111,7 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
                 
                 let annotationView:MKAnnotationView
                 let manhole:UIImage
-                if(annotation.title == "SaveManhole1"){
+                if(annotation.title == "福知山"){
                     annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                     manhole = UIImage(named: "Img/" + annotation.title! + ".png")!
                 }else{

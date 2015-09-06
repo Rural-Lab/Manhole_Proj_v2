@@ -55,6 +55,7 @@ class InfoClass: GraffitiSubClass{
             createImage(UIImage(named: "Img/shop02.jpg")!, x: 0, y: 0, z: 50, Type: "Info2")
         }
         
+        
         motionInit()
 //        createword("Hello",x: 0.0,y: -50.0,z: 0.0)
         
