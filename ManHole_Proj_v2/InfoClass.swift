@@ -30,6 +30,8 @@ class InfoClass: GraffitiSubClass{
 //    @IBOutlet var ShopScrollView:UIScrollView?
 //    @IBOutlet var ShopImageView:UIImageView?
 //    @IBOutlet var BackButton:UIButton?
+    var PopUpWindow:UIWindow?
+    
     
     var ManholeName = ""
     
@@ -47,7 +49,11 @@ class InfoClass: GraffitiSubClass{
         
         CameraInit()
         
-        motionInit(sceneInit())
+        sceneInit()
+        createImage(UIImage(named: "Img/shop01.jpg")!, x: 50, y: 0, z: 0, Type: "Info01")
+        createImage(UIImage(named: "Img/shop02.jpg")!, x: 0, y: 0, z: 50, Type: "Info02")
+        
+        motionInit()
 //        createword("Hello",x: 0.0,y: -50.0,z: 0.0)
         
         //TitleLabel?.text = ManholeName + ":Infomation"
@@ -70,18 +76,9 @@ class InfoClass: GraffitiSubClass{
         self.view.addSubview(TitleButtom!)
         self.view.addSubview(HomeButton!)
         self.view.addSubview(ChangeButton!)
-        
-//        ShopSign?.addTarget(self, action: "ClickSign:", forControlEvents: .TouchUpInside)
-//        //        ShopSign?.frame = CGRectMake(32, 48, 36, 40)
-//        ShopSign?.tag = 10
-//        self.view.addSubview(ShopSign!)
-//        
-//        ShopSign2?.addTarget(self, action: "ClickSign:", forControlEvents: .TouchUpInside)
-//        //        ShopSign2?.frame = CGRectMake(32, 48, 36, 40)
-//        ShopSign2?.tag = 11
-//        self.view.addSubview(ShopSign2!)
 
         InfoButtoninit()
+        InfoWindowinit()
     }
     
     func ClickButton(sender:UIButton){
@@ -219,8 +216,27 @@ class InfoClass: GraffitiSubClass{
         InfoButton?.hidden = true
     }
     
-    func GetInformation(sender:UIButton){
+    func InfoWindowinit(){
+        PopUpWindow = UIWindow(frame: CGRectMake(0, 0, self.view.frame.width-40, self.view.frame.width-40))
+        PopUpWindow?.layer.position = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
+        PopUpWindow?.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
+        self.view.addSubview(PopUpWindow!)
+        PopUpWindow?.hidden = true
         
+        var CancelButton = UIButton(frame: CGRectMake(0, 0, 30, 30))
+        CancelButton.setImage(UIImage(named: "Img/Cancel.png"), forState: .Normal)
+        CancelButton.addTarget(self, action: "CancelPush:", forControlEvents: .TouchUpInside)
+        PopUpWindow?.addSubview(CancelButton)
+
+    }
+    
+    func GetInformation(sender:UIButton){
+        println(sender.tag)
+        PopUpWindow?.hidden = false
+    }
+    
+    func CancelPush(sender:UIButton){
+        PopUpWindow?.hidden = true
     }
 }
 

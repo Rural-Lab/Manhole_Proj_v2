@@ -97,7 +97,7 @@ public class TopPage: Recog, CLLocationManagerDelegate {
         AlbumButton!.layer.masksToBounds = true
 //        AlbumButton!.setTitle("アルバム", forState: .Normal)
 //        AlbumButton!.layer.cornerRadius = 20.0
-        AlbumButton!.layer.position = CGPoint(x: self.view.bounds.width/8*7, y:self.view.bounds.height-50)
+        AlbumButton!.layer.position = CGPoint(x: self.view.bounds.width*27/32, y:self.view.bounds.height-50)
         AlbumButton!.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
         AlbumButton!.tag = 1
         

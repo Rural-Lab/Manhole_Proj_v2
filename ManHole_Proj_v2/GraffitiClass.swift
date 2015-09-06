@@ -49,7 +49,8 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         InfoFlag = false
         
         CameraInit()
-        motionInit(sceneInit())
+        sceneInit()
+        motionInit()
         LoadFile(ManholeName)
         buttonInit()
         textFieldInit()

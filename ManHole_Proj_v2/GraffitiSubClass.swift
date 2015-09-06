@@ -61,7 +61,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         
         let text = SCNText(string: name, extrusionDepth: 1.0)
         let textNode = SCNNode(geometry: text)
-        textNode.name = name
+//        textNode.name = name
         
         var v1 = SCNVector3Zero
         var v2 = SCNVector3Zero
@@ -79,7 +79,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         scene!.rootNode.addChildNode(textNode)
     }
 
-    func createImage(Image:UIImage,x:Float,y:Float,z:Float){
+    func createImage(Image:UIImage,x:Float,y:Float,z:Float,Type:String){
         let scnView = self.view.viewWithTag(10) as! SCNView
         let scene = scnView.scene
         let cameraNode = scene?.rootNode.childNodeWithName("cameraNode", recursively: true)
@@ -90,6 +90,9 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         Plane.firstMaterial = material
         
         let PlaneNode = SCNNode(geometry: Plane)
+        if let r = Type.rangeOfString("Info") {
+            PlaneNode.name = Type
+        }
         
         var v1 = SCNVector3Zero
         var v2 = SCNVector3Zero
@@ -200,12 +203,10 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         scnView.backgroundColor = UIColor.clearColor()
         self.view.addSubview(scnView)
         
-        createword("Hello",x: 0.0,y: -50.0,z: 0.0)
-        
         return cameraNode
     }
     
-    func motionInit(cameraNode:SCNNode){
+    func motionInit(){
         lm = CLLocationManager()
         // 位置情報を取るよう設定
         
@@ -221,8 +222,11 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         motionManager.deviceMotionUpdateInterval = 0.05 // 20Hz
         
         let scnView = self.view.viewWithTag(10) as! SCNView
-        let Info = scnView.scene?.rootNode.childNodeWithName("Hello", recursively: true)
-        let subBoxNode = cameraNode.childNodeWithName("vectorNode", recursively: true)
+        let cameraNode = scnView.scene?.rootNode.childNodeWithName("cameraNode", recursively: true)
+        let Info1 = scnView.scene?.rootNode.childNodeWithName("Info01", recursively: true)
+        let Info2 = scnView.scene?.rootNode.childNodeWithName("Info02", recursively: true)
+        let Info = [Info1,Info2]
+        let subBoxNode = cameraNode!.childNodeWithName("vectorNode", recursively: true)
         
         // Start motion data acquisition
         motionManager.startDeviceMotionUpdatesToQueue( NSOperationQueue.currentQueue(), withHandler:{
@@ -238,17 +242,19 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
             let qp = GLKQuaternionMultiply(gq1, gq2)
             let rq = SCNVector4Make(qp.x, qp.y, qp.z, qp.w)
             
-            cameraNode.orientation = rq
+            cameraNode!.orientation = rq
             
             if self.InfoFlag {
                 self.InfoButton?.hidden = true
-                if Info!.position.x - subBoxNode!.worldTransform.m41 > -7 && Info!.position.x - subBoxNode!.worldTransform.m41 < 10{
-                    if Info!.position.y - subBoxNode!.worldTransform.m42 > -7 && Info!.position.y - subBoxNode!.worldTransform.m42 < 10{
-                        if Info!.position.z - subBoxNode!.worldTransform.m43 > -7 && Info!.position.y - subBoxNode!.worldTransform.m43 < 10{
-                            self.InfoButton?.hidden = false
-//                            self.InfoButton?.tag =
-                        }
+                for i in 0..<2{
+                    if Info[i]!.position.x - subBoxNode!.worldTransform.m41 > -7 && Info[i]!.position.x - subBoxNode!.worldTransform.m41 < 10{
+                        if Info[i]!.position.y - subBoxNode!.worldTransform.m42 > -7 && Info[i]!.position.y - subBoxNode!.worldTransform.m42 < 10{
+                            if Info[i]!.position.z - subBoxNode!.worldTransform.m43 > -7 && Info[i]!.position.y - subBoxNode!.worldTransform.m43 < 10{
+                                self.InfoButton?.hidden = false
+                                self.InfoButton?.tag = i+10
+                            }
 
+                        }
                     }
                 }
             }
@@ -310,7 +316,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         let subBoxNode = cameraNode?.childNodeWithName("vectorNode", recursively: true)
         let x=Float(subBoxNode!.worldTransform.m41),y=Float(subBoxNode!.worldTransform.m42),z=Float(subBoxNode!.worldTransform.m43)
         
-        createImage(Image, x:x, y:y, z:z)
+        createImage(Image, x:x, y:y, z:z, Type:"none")
         
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
         
@@ -399,7 +405,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
                     let y = NSString(string: array[i*5+3] as! NSString).floatValue
                     let z = NSString(string: array[i*5+4] as! NSString).floatValue
                     println(image,x,y,z)
-                    createImage(image!, x: x , y: y, z: z)
+                    createImage(image!, x: x , y: y, z: z, Type:"none")
                 }
                 else{
                     println("ロード失敗")
