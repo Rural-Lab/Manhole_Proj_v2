@@ -66,7 +66,7 @@ class InfoClass: GraffitiSubClass{
         if ManholeName == "Manhole1"{
             TitleButtom?.text = "〒" + "大阪府大阪市北区"
         }else if ManholeName == "Manhole2"{
-            TitleButtom?.text = "〒" + "滋賀県草津市野路"
+            TitleButtom?.text = "〒" + "滋賀県草津市草津"
         }
         
         ChangeButton?.addTarget(self, action: "ClickButton:", forControlEvents: .TouchUpInside)
