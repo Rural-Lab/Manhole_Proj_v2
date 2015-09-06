@@ -32,7 +32,6 @@ class InfoClass: GraffitiSubClass{
 //    @IBOutlet var BackButton:UIButton?
     var PopUpWindow:UIWindow?
     
-    
     var ManholeName = ""
     
     var flag: Bool!
