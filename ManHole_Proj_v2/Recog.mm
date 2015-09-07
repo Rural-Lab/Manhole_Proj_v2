@@ -25,12 +25,12 @@
     {
         if([[result objectForKey:@(GPRecognizerResultIsDetected)] boolValue]){
             [self.recognitionEngine stop];
+            self.recognitionEngine.delegate = nil;
             self.recognitionEngine = nil;
             
             _message = [result objectForKey:@(GPRecognizerResultVisualWordTag)];
             
             [self performSegueWithIdentifier:@"Info" sender:self];
-            
             [self.view removeFromSuperview];
             
 //            dispatch_async(dispatch_get_main_queue(), ^{

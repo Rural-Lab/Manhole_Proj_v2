@@ -88,6 +88,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         TitleLabel = nil
         SelectWindow = nil
         subWindow = nil
+        myTextField?.delegate = nil
         myTextField = nil
         CurrentImage=nil
         imageView = nil
@@ -175,7 +176,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         myTextField?.placeholder = "Enter text!!"
         myTextField?.delegate = self
         myTextField?.borderStyle = UITextBorderStyle.RoundedRect
-        myTextField?.layer.position = CGPoint(x:self.view.bounds.width/2,y:self.view.bounds.height/4);
+        myTextField?.layer.position = CGPoint(x:self.view.bounds.width/2,y:self.view.bounds.height/2);
         self.view.addSubview(myTextField!)
         myTextField?.hidden = true
     }

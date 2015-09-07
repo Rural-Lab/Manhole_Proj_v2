@@ -55,7 +55,7 @@
 		3C6165061B9A096100F7720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3C6165081B9A912600F7720D /* Manhole.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = Manhole.bin; sourceTree = "<group>"; };
 		3C6165091B9A912600F7720D /* Manhole.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Manhole.yaml; sourceTree = "<group>"; };
-		3C629C671B99A59A00A424F9 /* ManHole_Proj_v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManHole_Proj_v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C629C671B99A59A00A424F9 /* Rural LId.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rural LId.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C629C6B1B99A59A00A424F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C629C6C1B99A59A00A424F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3C629C6E1B99A59A00A424F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 		3C629C711B99A59A00A424F9 /* Recog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Recog.h; sourceTree = "<group>"; };
 		3C629C721B99A59A00A424F9 /* Recog.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Recog.mm; sourceTree = "<group>"; };
 		3C629C771B99A59A00A424F9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3C629C801B99A59A00A424F9 /* ManHole_Proj_v2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ManHole_Proj_v2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C629C801B99A59A00A424F9 /* Rural LIdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rural LIdTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C629C851B99A59A00A424F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C629C861B99A59A00A424F9 /* ManHole_Proj_v2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManHole_Proj_v2Tests.m; sourceTree = "<group>"; };
 		3C629C911B99A61E00A424F9 /* GPImageRecognitionEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPImageRecognitionEngine.framework; sourceTree = "<group>"; };
@@ -128,8 +128,8 @@
 		3C629C681B99A59A00A424F9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3C629C671B99A59A00A424F9 /* ManHole_Proj_v2.app */,
-				3C629C801B99A59A00A424F9 /* ManHole_Proj_v2Tests.xctest */,
+				3C629C671B99A59A00A424F9 /* Rural LId.app */,
+				3C629C801B99A59A00A424F9 /* Rural LIdTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,9 +217,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3C629C661B99A59A00A424F9 /* ManHole_Proj_v2 */ = {
+		3C629C661B99A59A00A424F9 /* Rural LId */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3C629C8A1B99A59A00A424F9 /* Build configuration list for PBXNativeTarget "ManHole_Proj_v2" */;
+			buildConfigurationList = 3C629C8A1B99A59A00A424F9 /* Build configuration list for PBXNativeTarget "Rural LId" */;
 			buildPhases = (
 				3C629C631B99A59A00A424F9 /* Sources */,
 				3C629C641B99A59A00A424F9 /* Frameworks */,
@@ -229,14 +229,14 @@
 			);
 			dependencies = (
 			);
-			name = ManHole_Proj_v2;
+			name = "Rural LId";
 			productName = "OpenCVObj-c";
-			productReference = 3C629C671B99A59A00A424F9 /* ManHole_Proj_v2.app */;
+			productReference = 3C629C671B99A59A00A424F9 /* Rural LId.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3C629C7F1B99A59A00A424F9 /* ManHole_Proj_v2Tests */ = {
+		3C629C7F1B99A59A00A424F9 /* Rural LIdTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3C629C8D1B99A59A00A424F9 /* Build configuration list for PBXNativeTarget "ManHole_Proj_v2Tests" */;
+			buildConfigurationList = 3C629C8D1B99A59A00A424F9 /* Build configuration list for PBXNativeTarget "Rural LIdTests" */;
 			buildPhases = (
 				3C629C7C1B99A59A00A424F9 /* Sources */,
 				3C629C7D1B99A59A00A424F9 /* Frameworks */,
@@ -247,9 +247,9 @@
 			dependencies = (
 				3C629C821B99A59A00A424F9 /* PBXTargetDependency */,
 			);
-			name = ManHole_Proj_v2Tests;
+			name = "Rural LIdTests";
 			productName = "OpenCVObj-cTests";
-			productReference = 3C629C801B99A59A00A424F9 /* ManHole_Proj_v2Tests.xctest */;
+			productReference = 3C629C801B99A59A00A424F9 /* Rural LIdTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -271,7 +271,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3C629C621B99A59900A424F9 /* Build configuration list for PBXProject "ManHole_Proj_v2" */;
+			buildConfigurationList = 3C629C621B99A59900A424F9 /* Build configuration list for PBXProject "Rural LId" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -284,8 +284,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3C629C661B99A59A00A424F9 /* ManHole_Proj_v2 */,
-				3C629C7F1B99A59A00A424F9 /* ManHole_Proj_v2Tests */,
+				3C629C661B99A59A00A424F9 /* Rural LId */,
+				3C629C7F1B99A59A00A424F9 /* Rural LIdTests */,
 			);
 		};
 /* End PBXProject section */
@@ -346,7 +346,7 @@
 /* Begin PBXTargetDependency section */
 		3C629C821B99A59A00A424F9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3C629C661B99A59A00A424F9 /* ManHole_Proj_v2 */;
+			target = 3C629C661B99A59A00A424F9 /* Rural LId */;
 			targetProxy = 3C629C811B99A59A00A424F9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -462,17 +462,17 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/Takuro/Documents/Github/Manhole_Proj_v2/ManHole_Proj_v2/Framework/
+					/Users/Takuro/Documents/Github/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ManHole_Proj_v2/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/Takuro/Documents/Github/Manhole_Proj_v2//ManHole_Proj_v2/Framework/"
+					"/Users/Takuro/Documents/Github/Manhole_Proj_v2//ManHole_Proj_v2/Framework/",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = ManHole_Proj_v2;
+				PRODUCT_NAME = "Rural LId";
 				SWIFT_OBJC_BRIDGING_HEADER = "ManHole_Proj_v2/ManHole_Proj_v2-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -498,7 +498,7 @@
 					"/Users/Takuro/Documents/Github/Manhole_Proj_v2//ManHole_Proj_v2/Framework/",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = ManHole_Proj_v2;
+				PRODUCT_NAME = "Rural LId";
 				SWIFT_OBJC_BRIDGING_HEADER = "ManHole_Proj_v2/ManHole_Proj_v2-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -518,7 +518,7 @@
 				);
 				INFOPLIST_FILE = ManHole_Proj_v2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = ManHole_Proj_v2Tests;
+				PRODUCT_NAME = "Rural LIdTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ManHole_Proj_v2.app/ManHole_Proj_v2";
 			};
 			name = Debug;
@@ -533,7 +533,7 @@
 				);
 				INFOPLIST_FILE = ManHole_Proj_v2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = ManHole_Proj_v2Tests;
+				PRODUCT_NAME = "Rural LIdTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ManHole_Proj_v2.app/ManHole_Proj_v2";
 			};
 			name = Release;
@@ -541,7 +541,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3C629C621B99A59900A424F9 /* Build configuration list for PBXProject "ManHole_Proj_v2" */ = {
+		3C629C621B99A59900A424F9 /* Build configuration list for PBXProject "Rural LId" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3C629C881B99A59A00A424F9 /* Debug */,
@@ -550,7 +550,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3C629C8A1B99A59A00A424F9 /* Build configuration list for PBXNativeTarget "ManHole_Proj_v2" */ = {
+		3C629C8A1B99A59A00A424F9 /* Build configuration list for PBXNativeTarget "Rural LId" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3C629C8B1B99A59A00A424F9 /* Debug */,
@@ -559,7 +559,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3C629C8D1B99A59A00A424F9 /* Build configuration list for PBXNativeTarget "ManHole_Proj_v2Tests" */ = {
+		3C629C8D1B99A59A00A424F9 /* Build configuration list for PBXNativeTarget "Rural LIdTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3C629C8E1B99A59A00A424F9 /* Debug */,
