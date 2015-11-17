@@ -41,7 +41,7 @@ public class TopPage: Recog, CLLocationManagerDelegate {
         
         RecogInit()
         // トップページのレイアウトを作成.(ここから)
-        var effect = UIBlurEffect(style: UIBlurEffectStyle.Light);
+        let effect = UIBlurEffect(style: UIBlurEffectStyle.Light);
         
         var hollowTargetView = UIView()
         hollowTargetView = UIVisualEffectView(effect: effect);
@@ -133,7 +133,7 @@ public class TopPage: Recog, CLLocationManagerDelegate {
         
         // まだ認証が得られていない場合は、認証ダイアログを表示.
         if(status == CLAuthorizationStatus.NotDetermined) {
-            println("didChangeAuthorizationStatus:\(status)");
+            print("didChangeAuthorizationStatus:\(status)");
             // まだ承認が得られていない場合は、認証ダイアログを表示.
             self.myLocationManager.requestAlwaysAuthorization()
         }
@@ -172,15 +172,15 @@ public class TopPage: Recog, CLLocationManagerDelegate {
             var VC : AlbumMapClass = segue.destinationViewController as! AlbumMapClass
         }
         else if segue.identifier == "Info"{
-            var VC : InfoClass = segue.destinationViewController as! InfoClass
+            let VC : InfoClass = segue.destinationViewController as! InfoClass
             VC.ManholeName = message
         }
         
     }
     
-    public func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         
-        println("didChangeAuthorizationStatus");
+        print("didChangeAuthorizationStatus");
         
         // 認証のステータスをログで表示.
         var statusStr = "";
@@ -196,12 +196,12 @@ public class TopPage: Recog, CLLocationManagerDelegate {
         case .AuthorizedWhenInUse:
             statusStr = "AuthorizedWhenInUse"
         }
-        println(" CLAuthorizationStatus: \(statusStr)")
+        print(" CLAuthorizationStatus: \(statusStr)")
     }
     
     
     // 位置情報取得に成功したときに呼び出されるデリゲート.
-    public func locationManager(manager: CLLocationManager!,didUpdateLocations locations: [AnyObject]!){
+    public func locationManager(manager: CLLocationManager,didUpdateLocations locations: [CLLocation]){
         
         // 緯度・経度の表示.
         //        myLatitudeLabel.text = "緯度：\(manager.location.coordinate.latitude)"
@@ -213,18 +213,18 @@ public class TopPage: Recog, CLLocationManagerDelegate {
         //
         //        self.view.addSubview(myLatitudeLabel)
         //        self.view.addSubview(myLongitudeLabel)
-        println(manager.location.coordinate.latitude)
-        println(manager.location.coordinate.longitude)
+        print(manager.location!.coordinate.latitude)
+        print(manager.location!.coordinate.longitude)
         
     }
     
     // 位置情報取得に失敗した時に呼び出されるデリゲート.
-    public func locationManager(manager: CLLocationManager!,didFailWithError error: NSError!){
-        print("error")
+    public func locationManager(manager: CLLocationManager,didFailWithError error: NSError){
+        print("error", terminator: "")
     }
     
     override public func viewDidDisappear(animated: Bool) {
-        println("disappear")
+        print("disappear")
         myLocationManager = nil
         AlbumButton = nil
 //        removeAllSubviews(self.view)
@@ -232,7 +232,7 @@ public class TopPage: Recog, CLLocationManagerDelegate {
     }
     
     func removeAllSubviews(parentView: UIView){
-        var subviews = parentView.subviews
+        let subviews = parentView.subviews
         for subview in subviews {
             subview.removeFromSuperview()
         }

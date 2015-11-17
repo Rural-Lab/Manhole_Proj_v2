@@ -31,11 +31,11 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         return true
     }
     
-    override func supportedInterfaceOrientations() -> Int {
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
+            return UIInterfaceOrientationMask.AllButUpsideDown
         } else {
-            return Int(UIInterfaceOrientationMask.All.rawValue)
+            return UIInterfaceOrientationMask.All
         }
     }
     
@@ -246,17 +246,17 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         var Info:[SCNNode] = []
         for i in 0..<InfoCount {
             let ChildName = "Info" + String(i+1)
-            println(ChildName)
+            print(ChildName)
             let InfoNode = scnView.scene?.rootNode.childNodeWithName(ChildName, recursively: true)
             Info.append(InfoNode!)
         }
         let subBoxNode = cameraNode!.childNodeWithName("vectorNode", recursively: true)
         
         // Start motion data acquisition
-        motionManager.startDeviceMotionUpdatesToQueue( NSOperationQueue.currentQueue(), withHandler:{
+        motionManager.startDeviceMotionUpdatesToQueue( NSOperationQueue.currentQueue()!, withHandler:{
             deviceManager, error in
             
-            var attitude: CMAttitude = deviceManager.attitude
+            var attitude: CMAttitude = deviceManager!.attitude
             let temp = attitude.yaw
 //            println(temp)
             var quaternion: CMQuaternion = attitude.quaternion
@@ -295,11 +295,11 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         
         createword(Text, x:x, y:y, z:z)
         
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
         
         let fileName = ManholeName + "Data.dat"
         
-        let filePath = paths.stringByAppendingPathComponent(fileName)
+        let filePath = (paths as NSString).stringByAppendingPathComponent(fileName)
         
         //保存するデータ
         let array:NSMutableArray = [
@@ -319,16 +319,16 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
             //アーカイブしてdata.datというファイル名で保存する
             //        let successful = NSKeyedArchiver.archiveRootObject(array, toFile: filePath)
             
-            println(Dataarray)
+            print(Dataarray)
             
             let successful = Dataarray.writeToFile(filePath, atomically: true)
             if successful{
-                println("成功")
+                print("成功")
             }
         }else{
             let successful = array.writeToFile(filePath, atomically: true)
             if successful{
-                println("成功")
+                print("成功")
             }
         }
     }
@@ -342,19 +342,19 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         
         createImage(Image, x:x, y:y, z:z)
         
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
         
         //保存するファイルの名前
         let fileName = ManholeName + "Data.dat"
         
-        let filePath = paths.stringByAppendingPathComponent(fileName)
+        let filePath = (paths as NSString).stringByAppendingPathComponent(fileName)
         
         let fileManager = NSFileManager.defaultManager()
         //file exist?
         if !fileManager.fileExistsAtPath(filePath){
             let result : Bool = fileManager.createFileAtPath(filePath, contents:NSData(), attributes: nil)
             if !result{
-                println("miss make file")
+                print("miss make file")
                 return
             }
         }
@@ -377,35 +377,35 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
             //アーカイブしてdata.datというファイル名で保存する
     //        let successful = NSKeyedArchiver.archiveRootObject(array, toFile: filePath)
             
-            println(Dataarray)
+            print(Dataarray)
             
             let successful = Dataarray.writeToFile(filePath, atomically: true)
             if successful{
-                println("成功")
+                print("成功")
             }
         }else{
             let successful = array.writeToFile(filePath, atomically: true)
             if successful{
-                println("成功")
+                print("成功")
             }
         }
         
     }
     
     func LoadFile(ManholeName:String){
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
         
         //保存するファイルの名前
         let fileName = ManholeName + "Data.dat"
         
-        let filePath = paths.stringByAppendingPathComponent(fileName)
+        let filePath = (paths as NSString).stringByAppendingPathComponent(fileName)
         
         let fileManager = NSFileManager.defaultManager()
         //file exist?
         if !fileManager.fileExistsAtPath(filePath){
             let result : Bool = fileManager.createFileAtPath(filePath, contents:NSData(), attributes: nil)
             if !result{
-                println("miss make file")
+                print("miss make file")
                 return
             }
         }
@@ -414,25 +414,25 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
             
             for i in 0..<array.count/5 {
                 if array[i*5] as! String == "Text"{
-                    println("Text成功")
+                    print("Text成功")
                     let text = array[i*5+1] as! String
                     let x = NSString(string: array[i*5+2] as! NSString).floatValue
                     let y = NSString(string: array[i*5+3] as! NSString).floatValue
                     let z = NSString(string: array[i*5+4] as! NSString).floatValue
-                    println(text,x,y,z)
+                    print(text,x,y,z)
                     createword(text, x: x, y: y, z: z)
                 }
                 else if array[i*5] as! String == "Image"{
-                    println("Image成功")
+                    print("Image成功")
                     let image = String2Image(array[i*5+1] as! String)
                     let x = NSString(string: array[i*5+2] as! NSString).floatValue
                     let y = NSString(string: array[i*5+3] as! NSString).floatValue
                     let z = NSString(string: array[i*5+4] as! NSString).floatValue
-                    println(image,x,y,z)
+                    print(image,x,y,z)
                     createImage(image!, x: x , y: y, z: z)
                 }
                 else{
-                    println("ロード失敗")
+                    print("ロード失敗")
                 }
                 
             }
@@ -466,7 +466,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         
         
         //空白を+に変換する
-        var base64String = imageString.stringByReplacingOccurrencesOfString(" ", withString:"+",options: nil, range:nil)
+        let base64String = imageString.stringByReplacingOccurrencesOfString(" ", withString:"+",options: [], range:nil)
         
         //BASE64の文字列をデコードしてNSDataを生成
         let decodeBase64:NSData? =

@@ -54,7 +54,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         InfoFlag = false
         
         CameraInit()
-        sceneInit(ManHoleInfo: ManholeName)
+        sceneInit(ManholeName)
         motionInit()
         LoadFile(ManholeName)
         buttonInit()
@@ -96,7 +96,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         Cur_image=nil
         bezierPath=nil
         
-        println("diddispaer")
+        print("diddispaer")
 //        removeAllSubviews(self.view)
         
         self.view.removeFromSuperview()
@@ -104,7 +104,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
 
     //removeAllSubviews
     func removeAllSubviews(parentView: UIView){
-        var subviews = parentView.subviews
+        let subviews = parentView.subviews
         for subview in subviews {
             subview.removeFromSuperview()
         }
@@ -127,7 +127,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         }
         
         // バックカメラからVideoInputを取得.
-        let videoInput = AVCaptureDeviceInput.deviceInputWithDevice(myDevice, error: nil) as! AVCaptureDeviceInput
+        let videoInput = (try! AVCaptureDeviceInput(device: myDevice))
         
         // セッションに追加.
         mySession.addInput(videoInput)
@@ -139,7 +139,8 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         mySession.addOutput(myImageOutput)
         
         // 画像を表示するレイヤーを生成.
-        let myVideoLayer : AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer.layerWithSession(mySession) as! AVCaptureVideoPreviewLayer
+//        let myVideoLayer : AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(mySession) as AVCaptureVideoPreviewLayer
+        let myVideoLayer : AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: mySession) as AVCaptureVideoPreviewLayer
         //        myVideoLayer.frame = self.view.bounds
         myVideoLayer.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
         myVideoLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
@@ -190,8 +191,8 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
 
     //SelectWindow Initialize
     func SelectWindowInit(){
-        var IconWidth = self.view.frame.width/6
-        var marginWidth = self.view.frame.width/15
+        let IconWidth = self.view.frame.width/6
+        let marginWidth = self.view.frame.width/15
         SelectWindow = UIWindow(frame: CGRectMake(0, self.view.frame.height-IconWidth, self.view.frame.width, IconWidth))
         SelectWindow?.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.7)
         SelectWindow?.makeKeyWindow()
@@ -227,7 +228,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     
     //makesuSubWindow
     func makesuSubWindowInit(){
-        var IconWidth = self.view.frame.width/6
+        let IconWidth = self.view.frame.width/6
         
         subWindow = UIWindow(frame: CGRectMake(0, self.view.frame.height-IconWidth*2, self.view.frame.width, IconWidth))
         subWindow!.backgroundColor = UIColor(red: 0.0, green: 1.0, blue: 1.0, alpha: 0.7)
@@ -258,7 +259,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     //-------------------------------textField-------------------------------------
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-        SaveString(textField.text, ManholeName: ManholeName)
+        SaveString(textField.text!, ManholeName: ManholeName)
         
         let tmpviwe = SelectWindow?.viewWithTag(1)
         tmpviwe?.backgroundColor = UIColor.clearColor()
@@ -380,7 +381,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
             imageView?.image = CurrentImage
         }
         else{
-            println("OKButten")
+            print("OKButten")
 //            createword("Hello")
             SaveImage(CurrentImage!, ManholeName:ManholeName)
             imageView?.hidden = true
@@ -392,7 +393,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         let ViewImage = self.view.GetImage() as UIImage
         let myComposeFilter = CIFilter(name: "CIAdditionCompositing")
         
-        myComposeFilter.setValue(CIImage(image: ViewImage), forKey: kCIInputImageKey)
+        myComposeFilter!.setValue(CIImage(image: ViewImage), forKey: kCIInputImageKey)
         
         // ビデオ出力に接続.
         let myVideoConnection = myImageOutput.connectionWithMediaType(AVMediaTypeVideo)
@@ -405,9 +406,9 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
             
             // JpegからUIIMageを作成.
             let myImage : UIImage = UIImage(data: myImageData)!
-            myComposeFilter.setValue(CIImage(image: myImage), forKey: kCIInputBackgroundImageKey)
-            let finalImage : UIImage = UIImage(CIImage: myComposeFilter.outputImage)!
-            println(finalImage)
+            myComposeFilter!.setValue(CIImage(image: myImage), forKey: kCIInputBackgroundImageKey)
+            let finalImage : UIImage = UIImage(CIImage: myComposeFilter!.outputImage!)
+            print(finalImage)
             // アルバムに追加.
             UIImageWriteToSavedPhotosAlbum(finalImage, self, "image:didFinishSavingWithError:contextInfo:", nil)
             
@@ -417,7 +418,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     func image(image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutablePointer<Void>) {
         if error != nil {
             //プライバシー設定不許可など書き込み失敗時は -3310 (ALAssetsLibraryDataUnavailableError)
-            println(error.code)
+            print(error.code)
         }
     }
     
@@ -432,8 +433,8 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         canvas_View?.image = UIImage(named: "Img/White.png")
         canvas_View?.backgroundColor = UIColor.clearColor()
         
-        var IconWidth = self.view.frame.width/6
-        var marginWidth = self.view.frame.width/15
+        let IconWidth = self.view.frame.width/6
+        let marginWidth = self.view.frame.width/15
         
         subWindow?.backgroundColor = UIColor(red: 0.8, green: 0.0, blue: 0.8, alpha: 0.7)
         
@@ -476,8 +477,8 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     
     //Stamp Button Pushed
     func StampIcon(){
-        var IconWidth = self.view.frame.width/6
-        var marginWidth = self.view.frame.width/32
+        let IconWidth = self.view.frame.width/6
+        let marginWidth = self.view.frame.width/32
         subWindow?.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.0, alpha: 0.7)
         
         for i in 0..<4{
@@ -517,7 +518,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     
     //Camera Button Pushed
     func CameraIcon(){
-        var IconWidth = self.view.frame.width/5
+        let IconWidth = self.view.frame.width/5
         subWindow?.backgroundColor = UIColor(red: 0.0, green: 0.8, blue: 0.8, alpha: 0.7)
         
         let SelectButton=UIButton(frame: CGRectMake(0, 0, IconWidth+IconWidth/5*2, IconWidth))
@@ -533,7 +534,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     //-------------------------------illust-------------------------------------
     
     //書くため,No.1
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if self.canvas_View == nil {
             return;
         }
@@ -546,7 +547,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     }
     
     //書くため,No.2
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if (bezierPath == nil){
             return;
         }
@@ -566,7 +567,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     
     
     //書くため,No.3
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if (bezierPath == nil){
             return;
         }
@@ -582,7 +583,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
     func drawLinePreview(endPoint:CGPoint){
         UIGraphicsBeginImageContextWithOptions(canvas_View!.bounds.size, false, 0.0)
         canvas_View!.image?.drawInRect(canvas_View!.bounds)
-        CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound)
+        CGContextSetLineCap(UIGraphicsGetCurrentContext(), CGLineCap.Round)
         CGContextSetLineWidth(UIGraphicsGetCurrentContext(), width)
         CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(),red,green,blue, 0.8)
         CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchedPoint.x, touchedPoint.y)
@@ -597,7 +598,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         UIGraphicsBeginImageContextWithOptions(canvas_View!.bounds.size, false, 0.0)
         Cur_image.drawInRect(canvas_View!.bounds)
         bezierPath.lineWidth = width
-        bezierPath.lineCapStyle = kCGLineCapRound
+        bezierPath.lineCapStyle = CGLineCap.Round
         CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(),red,green,blue, 0.8)
         bezierPath.stroke()
         Cur_image = UIGraphicsGetImageFromCurrentImageContext()
@@ -621,7 +622,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
             var VC : TopPage = segue.destinationViewController as! TopPage
         }
         else if segue.identifier == "ChangeToInfo"{
-            var VC : InfoClass = segue.destinationViewController as! InfoClass
+            let VC : InfoClass = segue.destinationViewController as! InfoClass
             VC.ManholeName = self.ManholeName
         }
     }
@@ -638,7 +639,7 @@ extension UIView {
         
         // ビットマップ画像のcontextを作成.
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
-        let context: CGContextRef = UIGraphicsGetCurrentContext()
+        let context: CGContextRef = UIGraphicsGetCurrentContext()!
         
         // 対象のview内の描画をcontextに複写する.
         self.layer.renderInContext(context)

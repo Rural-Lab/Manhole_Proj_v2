@@ -48,16 +48,16 @@ class InfoClass: GraffitiSubClass{
     }
     
     override func viewDidAppear(animated: Bool) {
-        println("Info")
+        print("Info")
         InfoFlag = true
         flag = false
         
-        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
         
         CameraInit()
         
-        sceneInit(ManHoleInfo: ManholeName)
+        sceneInit(ManholeName)
         if ManholeName == "Manhole1" {
             InfoCount=2
             createImage(UIImage(named: "Img/shop01.jpg")!, x: 50, y: 0, z: 0, Type: "Info1")
@@ -114,7 +114,7 @@ class InfoClass: GraffitiSubClass{
             var VC : TopPage = segue.destinationViewController as! TopPage
         }
         else if segue.identifier == "ChangeToGraffiti"{
-            var VC : GraffitiClass = segue.destinationViewController as! GraffitiClass
+            let VC : GraffitiClass = segue.destinationViewController as! GraffitiClass
             VC.ManholeName = self.ManholeName
         }
     }
@@ -143,7 +143,7 @@ class InfoClass: GraffitiSubClass{
     }
     
     func removeAllSubviews(parentView: UIView){
-        var subviews = parentView.subviews
+        let subviews = parentView.subviews
         for subview in subviews {
             subview.removeFromSuperview()
         }
@@ -165,7 +165,8 @@ class InfoClass: GraffitiSubClass{
         }
         
         // バックカメラからVideoInputを取得.
-        let videoInput = AVCaptureDeviceInput.deviceInputWithDevice(myDevice, error: nil) as! AVCaptureDeviceInput
+        //let videoInput = (try! AVCaptureDeviceInput.deviceInputWithDevice(myDevice))
+        let videoInput = (try! AVCaptureDeviceInput(device: myDevice))
         
         // セッションに追加.
         mySession.addInput(videoInput)
@@ -177,7 +178,10 @@ class InfoClass: GraffitiSubClass{
         mySession.addOutput(myImageOutput)
         
         // 画像を表示するレイヤーを生成.
-        let myVideoLayer : AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer.layerWithSession(mySession) as! AVCaptureVideoPreviewLayer
+     //let myVideoLayer : AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer.layerWithSession(mySession) as AVCaptureVideoPreviewLayer
+        let myVideoLayer : AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: mySession)
+        
+     //   let myVideoLayer : AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer
         //        myVideoLayer.frame = self.view.bounds
         myVideoLayer.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
         myVideoLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
@@ -246,7 +250,7 @@ class InfoClass: GraffitiSubClass{
         self.view.addSubview(PopUpWindow!)
         PopUpWindow?.hidden = true
         
-        var CancelButton = UIButton(frame: CGRectMake(0, 0, 30, 30))
+        let CancelButton = UIButton(frame: CGRectMake(0, 0, 30, 30))
         CancelButton.setImage(UIImage(named: "Img/Cancel.png"), forState: .Normal)
         CancelButton.addTarget(self, action: "CancelPush:", forControlEvents: .TouchUpInside)
         PopUpWindow?.addSubview(CancelButton)
@@ -267,7 +271,7 @@ class InfoClass: GraffitiSubClass{
     }
     
     func GetInformation(sender:UIButton){
-        println(sender.tag)
+        print(sender.tag)
         switch sender.tag{
         case 10:
             InfoImageView?.image = UIImage(named: "Img/shop01.jpg")

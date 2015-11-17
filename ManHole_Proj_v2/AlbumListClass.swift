@@ -39,7 +39,7 @@ class AlbumListClass: UIViewController {
 
     @IBAction func tapscreen(sender: AnyObject) {
         self.view.endEditing(true)
-        println("test")
+        print("test")
     }
     
     func DismissKeyboard(){
@@ -50,7 +50,7 @@ class AlbumListClass: UIViewController {
         super.viewDidLoad()
         
         
-        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
         
         AlbumList?.text = "\nAlbum List"
@@ -143,7 +143,7 @@ class AlbumListClass: UIViewController {
     }
 
     func PushButton(sender:UIButton){
-        println("push Button \(sender.tag)")
+        print("push Button \(sender.tag)")
     }
 
     func ClickButton(sender:UIButton){
@@ -186,7 +186,7 @@ class AlbumListClass: UIViewController {
     }
     
     func removeAllSubviews(parentView: UIView){
-        var subviews = parentView.subviews
+        let subviews = parentView.subviews
         for subview in subviews {
             subview.removeFromSuperview()
         }
@@ -263,7 +263,7 @@ class AlbumListClass: UIViewController {
         self.view.addSubview(ContentWindow!)
         ContentWindow?.hidden = true
         
-        var CancelButton = UIButton(frame: CGRectMake(0, 0, 30, 30))
+        let CancelButton = UIButton(frame: CGRectMake(0, 0, 30, 30))
         CancelButton.setImage(UIImage(named: "Img/Cancel.png"), forState: .Normal)
         CancelButton.addTarget(self, action: "CancelPush:", forControlEvents: .TouchUpInside)
         ContentWindow?.addSubview(CancelButton)
