@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>チュートリアル -データセットの作成-</title>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$$$','$$$']]}});</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>チュートリアル -データセットの作成-</h1>
+
+<h3>1. データセットドキュメントを作成する。<br></h3>
+
+<p>ファイル -> 新規作成(⌘N)より、新規ドキュメントを作成する。
+<img src="./images/1.png" alt="ドキュメント作成後の画面" /></p>
+
+<h3>2. 辞書に画像を登録する。<br></h3>
+
+<p>ドキュメントウィンドウ内の「項目追加」ボタンから、もしくは登録画像テーブルに直接画像をドラッグアンドドロップして画像を登録する。<br>
+※登録する画像は300x300以上の解像度で不透明、かつ辞書画像としてのスコア(以下のスクリーンショットに見られる緑のゲージ)が緑であることを強く推奨します。<br>
+<img src="./images/2.png" alt="画像登録後の画面" /></p>
+
+<h3>3. 画像にタグを設定する。<br></h3>
+
+<p>画像の下に表示されているタグ(デフォルトはファイル名)を編集する。<br>
+※ここで設定した文字列が、プログラム内での識別子になります。
+<img src="./images/3.png" alt="タグ設定後の画面" /></p>
+
+<p>また設定するタグが非常に多い場合や、既に別のテーブルで管理している場合などは、メタタグ読み込みボタンより、CVSファイルの読み込みが行えます。
+例えば、以下の様なCSVファイルを読み込むと、上記の方法で入力した場合と同じ結果を得ることができます。
+<img src="./images/5.png" alt="Excelでのタグ入力" />
+<img src="./images/6.png" alt="CSVの出力" /></p>
+
+<p>読み込むファイルは以下のフォーマットに従う必要があります。</p>
+
+<p>文字コード：UTF-8<br>
+タグごとにカンマ(,)もしくは改行(CR or LF)で区切られている。</p>
+
+<h3>4. データセット名を設定する。<br></h3>
+
+<p>任意で、データセット名欄にデータセット名を入力する。(複数のデータセットを切り替えて利用する場合などに利用できます。)<br>
+※ここで設定した文字列が、プログラム内での識別子になります。
+<img src="./images/4.png" alt="データセット名入力後の画面" /></p>
+
+<h3>5. 認識器の設定をする。<br></h3>
+
+<p>以下の説明を参考に認識器を選択、また最大特徴点数を設定します。</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">認識器</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">GPFastRecognizer</td>
+<td align="left">高速な認識器です。トレードオフとして誤認識を起こしやすい傾向があります。多数の辞書画像を用いたい場合、または誤認識を許容するシステムなどで利用できます。</td>
+</tr>
+<tr>
+<td align="left">GPFineRecognizer</td>
+<td align="left">高精度な認識機です。トレードオフとして認識により時間が掛かる傾向があります。極小数の辞書画像、かつ誤認識を許容したくないシステムなどで利用できます。</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>最大特徴点数は、出力されるデータセットのデータサイズが大きい場合や、認識にかかる時間が大きい場合に小さくします。ただしトレードオフとして誤認識率が高くなります。</p>
+
+<h3>6. データセットを出力する。<br></h3>
+
+<p>ウィンドウ右下の「データセット出力」ボタンを押して、データセットを出力します。出力には数分かかる場合があります。また、出力されるファイルは選択した認識器に応じて変わります。</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">認識器</th>
+<th align="left">出力ファイル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">GPFastRecognizer</td>
+<td align="left">descファイル</td>
+</tr>
+<tr>
+<td align="left">GPFineRecognizer</td>
+<td align="left">binファイル, yamlファイル</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>※ライブラリから利用する際に、それぞれの出力ファイル全てが必要になります。(例：GPFastRecognizerならdescファイル。GPFineRecognizerならbinファイルとyamlファイル。)</p>
+
+<h3>(7). ドキュメントを保存する。<br></h3>
+
+<p>ファイル -> 保存(⌘S)より、現在作業中のドキュメントを保存することができます。再度データセットを出力しなおす際を考えて保存しておくことを推奨します。ドキュメントは「dc」という拡張子で保存されます。</p>
+</body>
+</html>
