@@ -126,7 +126,7 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
     }
     
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation === mapView.userLocation { // 現在地を示すアノテーションの場合はデフォルトのまま
             return nil
         } else {
@@ -176,7 +176,7 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
                 
                 UIGraphicsBeginImageContext(size)
                 manhole.drawInRect(CGRectMake(0, 0, size.width, size.height))
-                var resizeImage = UIGraphicsGetImageFromCurrentImageContext()
+                let resizeImage = UIGraphicsGetImageFromCurrentImageContext()
                 UIGraphicsEndImageContext()
                 annotationView.image = resizeImage // ここで好きな画像を設定します
                 
@@ -196,10 +196,10 @@ class AlbumMapClass: UIViewController, MKMapViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "FromMapToHome"{
-            var VC : TopPage = segue.destinationViewController as! TopPage
+//            var VC : TopPage = segue.destinationViewController as! TopPage
         }
         else if segue.identifier == "ChangeToMap"{
-            var VC : AlbumListClass = segue.destinationViewController as! AlbumListClass
+//            var VC : AlbumListClass = segue.destinationViewController as! AlbumListClass
         }
     }
     

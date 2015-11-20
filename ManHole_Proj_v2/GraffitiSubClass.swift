@@ -58,7 +58,7 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         let scnView = self.view.viewWithTag(10) as! SCNView
         let scene = scnView.scene
         let cameraNode = scene?.rootNode.childNodeWithName("cameraNode", recursively: true)
-        let subBoxNode = cameraNode?.childNodeWithName("vectorNode", recursively: true)
+//        let subBoxNode = cameraNode?.childNodeWithName("vectorNode", recursively: true)
         
         let text = SCNText(string: name, extrusionDepth: 1.0)
         let textNode = SCNNode(geometry: text)
@@ -91,7 +91,8 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         Plane.firstMaterial = material
         
         let PlaneNode = SCNNode(geometry: Plane)
-        if let r = Type.rangeOfString("Info") {
+//        if let r = Type.rangeOfString("Info") {
+        if (Type.rangeOfString("Info") != nil){
             PlaneNode.name = Type
         }
         
@@ -256,10 +257,10 @@ class GraffitiSubClass: UIViewController, CLLocationManagerDelegate, SCNSceneRen
         motionManager.startDeviceMotionUpdatesToQueue( NSOperationQueue.currentQueue()!, withHandler:{
             deviceManager, error in
             
-            var attitude: CMAttitude = deviceManager!.attitude
-            let temp = attitude.yaw
+            let attitude: CMAttitude = deviceManager!.attitude
+//            let temp = attitude.yaw
 //            println(temp)
-            var quaternion: CMQuaternion = attitude.quaternion
+            let quaternion: CMQuaternion = attitude.quaternion
             
             let gq1 = GLKQuaternionMakeWithAngleAndAxis(GLKMathDegreesToRadians(-90), 1, 0, 0)
             let gq2 = GLKQuaternionMake(Float(quaternion.x), Float(quaternion.y), Float(quaternion.z), Float(quaternion.w))

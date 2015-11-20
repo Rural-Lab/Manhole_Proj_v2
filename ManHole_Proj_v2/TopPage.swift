@@ -169,7 +169,7 @@ public class TopPage: Recog, CLLocationManagerDelegate {
     
     override public func prepareForSegue(segue:UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "TopToAlbum"{
-            var VC : AlbumMapClass = segue.destinationViewController as! AlbumMapClass
+           // var VC : AlbumMapClass = segue.destinationViewController as! AlbumMapClass
         }
         else if segue.identifier == "Info"{
             let VC : InfoClass = segue.destinationViewController as! InfoClass
@@ -201,6 +201,7 @@ public class TopPage: Recog, CLLocationManagerDelegate {
     
     
     // 位置情報取得に成功したときに呼び出されるデリゲート.
+    
     public func locationManager(manager: CLLocationManager,didUpdateLocations locations: [CLLocation]){
         
         // 緯度・経度の表示.

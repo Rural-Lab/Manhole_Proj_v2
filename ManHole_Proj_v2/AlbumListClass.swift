@@ -156,10 +156,10 @@ class AlbumListClass: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "FromAlbumListToHome"{
-            var VC : TopPage = segue.destinationViewController as! TopPage
+            //var VC : TopPage = segue.destinationViewController as! TopPage
         }
         if segue.identifier == "ChangeToMap"{
-            var VC : AlbumMapClass = segue.destinationViewController as! AlbumMapClass
+            //var VC : AlbumMapClass = segue.destinationViewController as! AlbumMapClass
         }
     }
     

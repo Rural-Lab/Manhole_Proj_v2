@@ -33,8 +33,7 @@
 		3C629CE61B99BDF800A424F9 /* GraffitiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C629CDC1B99BDF800A424F9 /* GraffitiClass.swift */; };
 		3C629CE71B99BDF800A424F9 /* GraffitiSubClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C629CDD1B99BDF800A424F9 /* GraffitiSubClass.swift */; };
 		3C629CEA1B99BDF800A424F9 /* InfoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C629CE01B99BDF800A424F9 /* InfoClass.swift */; };
-		D05A23801BFB04E700D77B41 /* GPImageRecognitionEngine in Frameworks */ = {isa = PBXBuildFile; fileRef = D05A237F1BFB04E700D77B41 /* GPImageRecognitionEngine */; };
-		D05A23811BFB055500D77B41 /* GPImageRecognitionEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C629C911B99A61E00A424F9 /* GPImageRecognitionEngine.framework */; };
+		3CD739181BFEDADD00E063D7 /* GPImageRecognitionEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD739171BFEDADD00E063D7 /* GPImageRecognitionEngine.framework */; };
 		D0C6756F1B9AFBDD00262F56 /* album.png in Resources */ = {isa = PBXBuildFile; fileRef = D0C6756E1B9AFBDD00262F56 /* album.png */; };
 		D0C675711B9B078A00262F56 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = D0C675701B9B078A00262F56 /* home.png */; };
 /* End PBXBuildFile section */
@@ -67,7 +66,6 @@
 		3C629C801B99A59A00A424F9 /* Rural LIdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rural LIdTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C629C851B99A59A00A424F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C629C861B99A59A00A424F9 /* ManHole_Proj_v2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManHole_Proj_v2Tests.m; sourceTree = "<group>"; };
-		3C629C911B99A61E00A424F9 /* GPImageRecognitionEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPImageRecognitionEngine.framework; sourceTree = "<group>"; };
 		3C629C921B99A61E00A424F9 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		3C629C951B99A62900A424F9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3C629C971B99A63100A424F9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -84,7 +82,7 @@
 		3C629CDC1B99BDF800A424F9 /* GraffitiClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiClass.swift; sourceTree = "<group>"; };
 		3C629CDD1B99BDF800A424F9 /* GraffitiSubClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiSubClass.swift; sourceTree = "<group>"; };
 		3C629CE01B99BDF800A424F9 /* InfoClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoClass.swift; sourceTree = "<group>"; };
-		D05A237F1BFB04E700D77B41 /* GPImageRecognitionEngine */ = {isa = PBXFileReference; lastKnownFileType = text; name = GPImageRecognitionEngine; path = ManHole_Proj_v2/Framework/GPImageRecognitionEngine.framework/GPImageRecognitionEngine; sourceTree = "<group>"; };
+		3CD739171BFEDADD00E063D7 /* GPImageRecognitionEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GPImageRecognitionEngine.framework; path = ManHole_Proj_v2/Framework/GPImageRecognitionEngine.framework; sourceTree = "<group>"; };
 		D0C6756E1B9AFBDD00262F56 /* album.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = album.png; sourceTree = "<group>"; };
 		D0C675701B9B078A00262F56 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,8 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D05A23811BFB055500D77B41 /* GPImageRecognitionEngine.framework in Frameworks */,
-				D05A23801BFB04E700D77B41 /* GPImageRecognitionEngine in Frameworks */,
+				3CD739181BFEDADD00E063D7 /* GPImageRecognitionEngine.framework in Frameworks */,
 				3C629CA21B99A65600A424F9 /* AssetsLibrary.framework in Frameworks */,
 				3C629CA01B99A64E00A424F9 /* QuartzCore.framework in Frameworks */,
 				3C629C9E1B99A64800A424F9 /* CoreVideo.framework in Frameworks */,
@@ -121,7 +118,7 @@
 		3C629C5E1B99A59900A424F9 = {
 			isa = PBXGroup;
 			children = (
-				D05A237F1BFB04E700D77B41 /* GPImageRecognitionEngine */,
+				3CD739171BFEDADD00E063D7 /* GPImageRecognitionEngine.framework */,
 				3C629C691B99A59A00A424F9 /* ManHole_Proj_v2 */,
 				3C629C831B99A59A00A424F9 /* ManHole_Proj_v2Tests */,
 				3C629C681B99A59A00A424F9 /* Products */,
@@ -192,7 +189,6 @@
 				3C629C991B99A63900A424F9 /* CoreGraphics.framework */,
 				3C629C971B99A63100A424F9 /* UIKit.framework */,
 				3C629C951B99A62900A424F9 /* AVFoundation.framework */,
-				3C629C911B99A61E00A424F9 /* GPImageRecognitionEngine.framework */,
 				3C629C921B99A61E00A424F9 /* opencv2.framework */,
 			);
 			name = Framework;
@@ -262,14 +258,12 @@
 		3C629C5F1B99A59900A424F9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftMigration = 0710;
-				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Takuro;
 				TargetAttributes = {
 					3C629C661B99A59A00A424F9 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 628U27X7NX;
 					};
 					3C629C7F1B99A59A00A424F9 = {
 						CreatedOnToolsVersion = 6.4;
@@ -472,7 +466,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/sonoda/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
+					/Users/Takuro/Documents/Github/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
 					"$(PROJECT_DIR)/ManHole_Proj_v2/Framework",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ManHole_Proj_v2/Info.plist";
@@ -480,7 +474,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/sonoda/Manhole_Proj_v2//ManHole_Proj_v2/Framework/",
+					"/Users/Takuro/Documents/Github/Manhole_Proj_v2//ManHole_Proj_v2/Framework/",
 					"$(PROJECT_DIR)/ManHole_Proj_v2/Framework/GPImageRecognitionEngine.framework/Versions/A",
 				);
 				OTHER_LDFLAGS = "-ObjC";
@@ -502,7 +496,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/sonoda/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
+					/Users/Takuro/Documents/Github/Manhole_Proj_v2/ManHole_Proj_v2/Framework/,
 					"$(PROJECT_DIR)/ManHole_Proj_v2/Framework",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ManHole_Proj_v2/Info.plist";
@@ -510,7 +504,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/sonoda/Manhole_Proj_v2//ManHole_Proj_v2/Framework/",
+					"/Users/Takuro/Documents/Github/Manhole_Proj_v2//ManHole_Proj_v2/Framework/",
 					"$(PROJECT_DIR)/ManHole_Proj_v2/Framework/GPImageRecognitionEngine.framework/Versions/A",
 				);
 				OTHER_LDFLAGS = "-ObjC";
@@ -528,6 +522,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/ManHole_Proj_v2/Framework",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -548,6 +543,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/ManHole_Proj_v2/Framework",
 				);
 				INFOPLIST_FILE = ManHole_Proj_v2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

@@ -619,7 +619,7 @@ class GraffitiClass: GraffitiSubClass, UITextFieldDelegate {
         SelectWindow?.hidden = true
         subWindow?.hidden = true
         if segue.identifier == "FromGraffitiToHome"{
-            var VC : TopPage = segue.destinationViewController as! TopPage
+//            var VC : TopPage = segue.destinationViewController as! TopPage
         }
         else if segue.identifier == "ChangeToInfo"{
             let VC : InfoClass = segue.destinationViewController as! InfoClass

@@ -69,6 +69,12 @@ class InfoClass: GraffitiSubClass{
             createImage(UIImage(named: "Img/shop02.jpg")!, x: 0, y: 0, z: 50, Type: "Info2")
             createImage(UIImage(named: "Img/shop03.jpg")!, x: -50, y: 0, z: 0, Type: "Info3")
         }
+        else if ManholeName == "Manhole3" {
+            InfoCount=3
+            createImage(UIImage(named: "Img/shop01.jpg")!, x: 50, y: 0, z: 0, Type: "Info1")
+            createImage(UIImage(named: "Img/shop02.jpg")!, x: 0, y: 0, z: 50, Type: "Info2")
+            createImage(UIImage(named: "Img/shop03.jpg")!, x: -50, y: 0, z: 0, Type: "Info3")
+        }
         
         motionInit()
 //        createword("Hello",x: 0.0,y: -50.0,z: 0.0)
@@ -80,6 +86,8 @@ class InfoClass: GraffitiSubClass{
         if ManholeName == "Manhole1"{
             TitleButtom?.text = "〒" + "大阪府大阪市北区"
         }else if ManholeName == "Manhole2"{
+            TitleButtom?.text = "〒" + "滋賀県草津市草津"
+        }else if ManholeName == "Manhole3"{
             TitleButtom?.text = "〒" + "滋賀県草津市草津"
         }
         
@@ -111,7 +119,7 @@ class InfoClass: GraffitiSubClass{
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "FromInfoToHome"{
-            var VC : TopPage = segue.destinationViewController as! TopPage
+//            var VC : TopPage = segue.destinationViewController as! TopPage
         }
         else if segue.identifier == "ChangeToGraffiti"{
             let VC : GraffitiClass = segue.destinationViewController as! GraffitiClass
